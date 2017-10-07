@@ -10,50 +10,8 @@
 <!-- 반응형 제거 -->
 <link rel="stylesheet" href="resources/css/nonresponsive.css">
 
-<style>
-	
-	/* table css */
-	 #list {
-      text-align: center;
-    }
-   
-    #write {
-      text-align: right;
-    }
-     
-    /* Bootstrap 수정 */
-    .table > thead {
-      background-color: #b3c6ff;
-    }
-    .table > thead > tr > th {
-      text-align: center;
-    }
-    .table-hover > tbody > tr:hover {
-      background-color: #e6ecff;
-    }
-    .table > tbody > tr > td {
-      text-align: center;
-    }
-    .table > tbody > tr > #title {
-      text-align: left;
-    }
-     
-    div > #paging {
-      text-align: center;
-    }
-     
-    .hit {
-      animation-name: blink;
-      animation-duration: 1.5s;
-      animation-timing-function: ease;
-      animation-iteration-count: infinite;
-      /* 위 속성들을 한 줄로 표기하기 */
-      /* -webkit-animation: blink 1.5s ease infinite; */
-    }
-	/* 출처: http://bigfat.tistory.com/80 [Bigfat] */
-
-
-</style>
+<!-- 공지사항 게시판 css -->
+<link rel="stylesheet" href="resources/css/noticeboard.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9] -->
@@ -63,7 +21,7 @@
 <body>
 
 	<!-- 헤더 -->
-	<%@include file="layout/header.jsp" %>
+	<%@include file="../layout/header.jsp" %>
 
 	<div class="container text-center">
 		<div class="row content">
@@ -72,7 +30,7 @@
 				<ul class="list-group">
 					<li class="list-group-item active">HOME</li>
 					<li class="list-group-item"><a href="#introduce">학원소개</a></li>
-					<li class="list-group-item"><a href="#">공지사항</a></li>
+					<li class="list-group-item"><a href="#notice">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-10 text-left">
@@ -88,7 +46,7 @@
 					aliquip ex ea commodo consequat.</p>
 				<hr>
 				<!-- 공지사항 게시판 -->
-				<h1>공지사항</h1>
+				<h1 id="notice">공지사항</h1>
 				<div id="container">
 					<%-- <div align="right">
 						<!-- Login 검증 -->
@@ -145,7 +103,7 @@
 	</div>
 
 	<!-- footer -->
-	<%@include file="layout/footer.jsp" %>
+	<%@include file="../layout/footer.jsp" %>
 
 	<!-- script -->
 	<script

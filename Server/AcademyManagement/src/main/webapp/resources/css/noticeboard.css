@@ -1,0 +1,39 @@
+@charset "utf-8";
+#list {
+      text-align: center;
+    }
+   
+    #write {
+      text-align: right;
+    }
+     
+    /* Bootstrap 수정 */
+    .table > thead {
+      background-color: #b3c6ff;
+    }
+    .table > thead > tr > th {
+      text-align: center;
+    }
+    .table-hover > tbody > tr:hover {
+      background-color: #e6ecff;
+    }
+    .table > tbody > tr > td {
+      text-align: center;
+    }
+    .table > tbody > tr > #title {
+      text-align: left;
+    }
+     
+    div > #paging {
+      text-align: center;
+    }
+     
+    .hit {
+      animation-name: blink;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      /* 위 속성들을 한 줄로 표기하기 */
+      /* -webkit-animation: blink 1.5s ease infinite; */
+    }
+	/* 출처: http://bigfat.tistory.com/80 [Bigfat] */

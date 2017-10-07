@@ -26,6 +26,32 @@ body {
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 <body>
+
+	<!-- 	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Logo</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Projects</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+							Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+
 	<!-- 헤더 -->
 	<div class="container">
 		<div class="row">
@@ -39,10 +65,8 @@ body {
 			</div>
 			<div class="col-xs-4 text-right">
 				<div>
-					<a href="#"><span class="glyphicon glyphicon-log-in"></span>
-						Login</a> &nbsp;&nbsp; <a href="#"><span
-						class="glyphicon glyphicon-envelope"></span> Contact Us</a>
-					&nbsp;&nbsp;
+					<a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a> &nbsp;&nbsp;
+					<a href="#"><span class="glyphicon glyphicon-envelope"></span> Contact Us</a> &nbsp;&nbsp;
 				</div>
 			</div>
 		</div>
@@ -55,44 +79,77 @@ body {
 			<div class="col-xs-2">
 				<span>&nbsp;</span>
 			</div>
-			<div class="col-xs-8">
-				<ul class="nav nav-pills" id="nav">
-					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">수납관리
-							<span class="caret"></span>
-					</a>
+			<div class="col-xs-10">
+				<ul class="nav nav-tabs" id="nav">
+					<li class="active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">HOME
+							<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Submenu 1-1</a></li>
-							<li><a href="#">Submenu 1-2</a></li>
-							<li><a href="#">Submenu 1-3</a></li>
+							<li><a href="#">학원 소개</a></li>
+							<li><a href="#">공지사항</a></li>
 						</ul></li>
-					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">상담관리
-							<span class="caret"></span>
-					</a>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">메인페이지 수정
+							<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Submenu 1-1</a></li>
-							<li><a href="#">Submenu 1-2</a></li>
-							<li><a href="#">Submenu 1-3</a></li>
+							<li><a href="#">공지사항 등록</a></li>
+							<li><a href="#">공지사항 수정/삭제</a></li>
 						</ul></li>
-					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">성적관리
-							<span class="caret"></span>
-					</a>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
+							<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Submenu 1-1</a></li>
-							<li><a href="#">Submenu 1-2</a></li>
-							<li><a href="#">Submenu 1-3</a></li>
+							<li><a href="#">전체 일정 조회</a></li>
+							<li><a href="#">일정 등록/수정</a></li>
 						</ul></li>
-					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">출결관리
-							<span class="caret"></span>
-					</a>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">수업
+							<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Submenu 1-1</a></li>
-							<li><a href="#">Submenu 1-2</a></li>
-							<li><a href="#">Submenu 1-3</a></li>
+							<li><a href="#">수업 조회</a></li>
+							<li><a href="#">수업 등록</a></li>
+							<li><a href="#">수업 수정/삭제</a></li>
+							<li><a href="#">출석부 확인</a></li>
+							<li><a href="#">출석부 등록/수정</a></li>
+							<li><a href="#">성적 확인</a></li>
+							<li><a href="#">성적 등록/수정</a></li>
+						</ul></li>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">알림장
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">알림장 조회</a></li>
+							<li><a href="#">알림장 등록</a></li>
+							<li><a href="#">알림장 수정/삭제</a></li>
+						</ul></li>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">상담
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">상담 신청/조회</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">학생 상담</li>
+							<li><a href="#">학생 상담 조회</a></li>
+							<li><a href="#">학생 상담 등록</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">학부모 상담</li>
+							<li><a href="#">학부모 상담 조회</a></li>
+							<li><a href="#">학부모 상담 등록</a></li>
+						</ul></li>
+					<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">계정 관리
+							<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">학생 정보 조회/수정</a></li>
+							<li><a href="#">강사 정보 조회/수정</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">학생/보호자 계정 관리</li>
+							<li><a href="#">학생/보호자 등록</a></li>
+							<li><a href="#">학생/보호자 조회</a></li>
+							<li><a href="#">학생/보호자 수정/삭제</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">강사 계정 관리</li>
+							<li><a href="#">강사 등록</a></li>
+							<li><a href="#">강사 조회</a></li>
+							<li><a href="#">강사 수정/삭제</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">관리자 계정 관리</li>
+							<li><a href="#">관리자 정보 수정</a></li>
 						</ul></li>
 				</ul>
-			</div>
-			<div class="col-xs-2">
-				<span>&nbsp;</span>
 			</div>
 		</div>
 
@@ -103,9 +160,9 @@ body {
 		<div class="row content">
 			<div class="col-xs-2">
 				<ul class="list-group">
-					<li class="list-group-item active">Head</li>
-					<li class="list-group-item"><a href="#nav">First item</a></li>
-					<li class="list-group-item"><a href="#">Second item</a></li>
+					<li class="list-group-item active">HOME</li>
+					<li class="list-group-item"><a href="#">학원소개</a></li>
+					<li class="list-group-item"><a href="#">공지사항</a></li>
 				</ul>
 			</div>
 			<div class="col-xs-8 text-left">
@@ -148,13 +205,14 @@ body {
 	<!-- nav js -->
 	<script>
 		$(document).ready(function() {
-			$("#nav > li").mouseenter(function() {
-				$(this).attr("class", "open");
-			});
-
-			$("#nav > li").mouseleave(function() {
-				$(this).attr("class", "");
-			});
+			var now = $("#nav li:active");
+			var state = now.clone();
+			
+			$("#nav li").hover(function() {
+				$(this).attr("class", "focus open");},
+				function() {
+					$(this).attr("class", "");
+				});
 		});
 	</script>
 </body>

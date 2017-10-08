@@ -44,7 +44,7 @@
 							 	<th width="10%">이름</th>
 							  	<th width="10%">나이</th>
 							  	<th width="10%">성별</th>
-							  	<th width="20%">전화번호</th>
+							  	<th width="20%">휴대폰</th>
 							  	<th width="15%">이메일</th>
 							  	<th width="15%">상세보기</th>
 							</tr>
@@ -105,9 +105,13 @@
 	</div>
 	
 	<script>
-		$(document).ready(
-			
-			function() {
+		var msg = "${msg}";
+		
+		if(msg == "SUCCESS") {
+			alert("처리가 완료되었습니다.");
+		}
+	
+		$(document).ready(function() {
 
 				$('#registBtn').on("click", function(event) {
 					self.location = "/user/student/regist"

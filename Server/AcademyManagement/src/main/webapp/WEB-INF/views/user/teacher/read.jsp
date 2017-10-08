@@ -36,7 +36,10 @@
 				  <div class="panel-body">
 				  	
 				  	<!-- 상세 정보 -->
-				  	<form class="form-horizontal">
+				  	<form id="myForm" class="form-horizontal" action="/user/teacher/modify" method="post">
+				  	
+				  		<input type="hidden" name="uno" value="${uno }">
+				  	
 					  <div class="form-group">
 					    <label for="role" class="col-xs-2 control-label">구분 : </label>
 					    <div class="col-xs-4">
@@ -114,17 +117,18 @@
 					    	<p class="form-control-static">2017-10-08 17:00</p>
 					    </div>
 					  </div>		  
-					</form>
-				  	<!-- 상세 정보 끝 -->
+					
 				  	
 					<hr/>
 					<div class="row">
 						<div class="col-xs-push-8 col-xs-4 text-right">
-						 	<input class="btn btn-default" type="button" value="수정">
-						 	<input class="btn btn-default" type="button" value="삭제">
-						 	<input class="btn btn-default" type="button" value="목록">
+						 	<input class="btn btn-default" type="submit" value="수정">
+						 	<input id="removeBtn" class="btn btn-default" type="button" value="삭제">
+						 	<input id="listBtn" class="btn btn-default" type="button" value="목록">
 						 </div>
 					</div>
+					</form>
+				  	<!-- 상세 정보 끝 -->
 					
 				  </div>
 				  <!-- 패널 바디 끝 -->
@@ -133,5 +137,27 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+	
+			var formObj = $("#myForm");
+			
+			console.log(formObj);
+			
+			
+			$("#removeBtn").on("click", function(){
+				formObj.attr("action", "/user/teacher/remove");
+				formObj.submit();
+			});
+			
+			$("#listBtn ").on("click", function(){
+				formObj.attr("method", "get");
+				formObj.attr("action", "/user/teacher");
+				formObj.submit();
+			});
+			
+		});
+	</script>
 
 <%@ include file="../../layout/footer.jsp" %>

@@ -3,10 +3,10 @@
 <%@include file="../layout/header.jsp" %>
 <title>공지사항 작성</title>
 <!-- 공지사항 게시판 css -->
-<link rel="stylesheet" href="resources/css/noticeboard.css">
+<link rel="stylesheet" href="/resources/css/noticeboard.css">
 
 <!-- 게시판 글쓰기 css -->
-<link rel="stylesheet" href="resources/css/writingboard.css">
+<link rel="stylesheet" href="/resources/css/writingboard.css">
 
 <!-- 센터 -->
 <div class="container text-center">

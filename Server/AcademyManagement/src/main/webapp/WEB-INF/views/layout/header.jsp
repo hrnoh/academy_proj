@@ -6,7 +6,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <!-- 반응형 제거 -->
-<link rel="stylesheet" href="resources/css/nonresponsive.css">
+<link rel="stylesheet" href="/resources/css/nonresponsive.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- [if lt IE 9] -->
@@ -20,7 +20,7 @@
 	<div class="row">
 		<div class="col-xs-4">
 			<div id="logo">
-				<img alt="logo" src="resources/img/Logo2.jpg"></img>
+				<img alt="logo" src="/resources/img/Logo2.jpg"></img>
 			</div>
 		</div>
 		<div class="col-xs-4"></div>
@@ -43,17 +43,17 @@
 		<div class="col-xs-10">
 			<ul class="nav nav-tabs" id="nav">
 				<li class="active"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#">HOME <span class="caret"></span></a>
+					data-toggle="dropdown" href="/home">HOME <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">학원 소개</a></li>
-						<li><a href="#">공지사항</a></li>
+						<li><a href="/home#introduce">학원 소개</a></li>
+						<li><a href="/home#notice">공지사항</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">홈페이지
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/HomeEditting">홈페이지
 						수정 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">공지사항 조회</a></li>
-						<li><a href="#">공지사항 작성</a></li>
+						<li><a href="/HomeEditting/lookup_notice_board">공지사항 조회</a></li>
+						<li><a href="/HomeEditting/notice_writing">공지사항 작성</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
 						<span class="caret"></span>

@@ -54,7 +54,6 @@
 					<ul class="dropdown-menu">
 						<li><a href="#">공지사항 조회</a></li>
 						<li><a href="#">공지사항 작성</a></li>
-						<li><a href="#">공지사항 수정/삭제</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
 						<span class="caret"></span>

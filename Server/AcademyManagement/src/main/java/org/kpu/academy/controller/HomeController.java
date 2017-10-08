@@ -20,6 +20,37 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
+		return "redirect:home";
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public String Home() {
+		
 		return "Home/home";
 	}
+	
+	@RequestMapping(value = "/HomeEditting", method = RequestMethod.GET)
+	public String HomeEditting() {
+		
+		return "redirect:HomeEditting/lookup_notice_board";
+	}
+	
+	@RequestMapping(value = "/HomeEditting/lookup_notice_board", method = RequestMethod.GET)
+	public String LookupNoticeBoard() {
+		
+		return "HomeEditting/lookup_notice_board";
+	}
+	
+	@RequestMapping(value = "/HomeEditting/notice_writing", method = RequestMethod.GET)
+	public String NoticeWriting() {
+		
+		return "HomeEditting/notice_writing";
+	}
+	
+	@RequestMapping(value = "/HomeEditting/notice_correction", method = RequestMethod.GET)
+	public String NoticeCorrection() {
+		
+		return "HomeEditting/notice_correction";
+	}
+	
 }

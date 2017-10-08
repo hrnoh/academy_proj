@@ -44,4 +44,8 @@ public class UserServiceImpl implements UserService {
 		return userDAO.listAll(role);
 	}
 
+	@Override
+	public List<UserVO> parentsList(Integer uno) throws Exception {
+		return userDAO.parentsList(uno);
+	}
 }

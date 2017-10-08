@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true"%>
+
 <%@ include file="../../layout/header.jsp" %>
 
 
@@ -49,18 +53,20 @@
 					</div>
 					<div style="width:100%;overflow:auto; height:300px; margin-top:0px;">
 						<table class="table table-hover" style="width:100%;">
+						    <c:forEach items="${list}" var="userVO">
 							<tr>
-								<td width="10%">학생</td>
-						     	<td width="10%">4</td>
-						       	<td width="10%">노형래</td>
-						       	<td width="10%">22</td>
-						       	<td width="10%">남</td>
-						       	<td width="20%">010-8281-9331</td>
-						       	<td width="15%">hrnoh24@gmail.com</td>
+								<td width="10%">${userVO.role }</td>
+						     	<td width="10%">${userVO.grade }</td>
+						       	<td width="10%">${userVO.name }</td>
+						       	<td width="10%">${userVO.age }</td>
+						       	<td width="10%">${userVO.sex }</td>
+						       	<td width="20%">${userVO.mPhone }</td>
+						       	<td width="15%">${userVO.email }</td>
 						       	<td width="15%" align="center">
-						       		<a href="/user/student/detail"><span class="glyphicon glyphicon-pencil"></span></a>
+						       		<a href="/user/student/detail?uno=${userVO.uno}"><span class="glyphicon glyphicon-pencil"></span></a>
 						       	</td>
-						    </tr>
+							</tr>
+							</c:forEach>
 						</table>
 					</div>
 					<!-- 테이블 끝 -->

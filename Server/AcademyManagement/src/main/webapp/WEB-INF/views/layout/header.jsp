@@ -12,6 +12,14 @@
 <!-- [if lt IE 9] -->
 <!-- <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 <!-- <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
+
+<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script
+		src="/resources/js/nav.js"></script>
+
 </head>
 <body>
 
@@ -43,17 +51,17 @@
 		<div class="col-xs-10">
 			<ul class="nav nav-tabs" id="nav">
 				<li class="active"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="/home">HOME <span class="caret"></span></a>
+					data-toggle="dropdown" href="#">HOME <span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="/home#introduce">학원 소개</a></li>
-						<li><a href="/home#notice">공지사항</a></li>
+						<li><a href="#">학원 소개</a></li>
+						<li><a href="#">공지사항</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/HomeEditting">홈페이지
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">홈페이지
 						수정 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="/HomeEditting/lookup_notice_board">공지사항 조회</a></li>
-						<li><a href="/HomeEditting/notice_writing">공지사항 작성</a></li>
+						<li><a href="#">공지사항 조회</a></li>
+						<li><a href="#">공지사항 작성</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
 						<span class="caret"></span>
@@ -110,3 +118,4 @@
 		</div>
 	</div>
 </div>
+&nbsp

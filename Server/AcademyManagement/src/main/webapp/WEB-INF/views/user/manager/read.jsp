@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true"%>
+
 <%@ include file="../../layout/header.jsp" %>
 
 
@@ -41,67 +45,31 @@
 					    
 					    <label for="name" class="col-xs-2 control-label">이름 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" value="노형래">
+					    	<input type="input" class="form-control" id="name" value="${userVO.name }">
 					    </div>
-					  </div>
-					  
-					  <div class="form-group">	    
-					    <label for="name" class="col-xs-2 control-label">나이 : </label>
-					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" value="23">
-					    </div>
-					    
-					    <label for="name" class="col-xs-2 control-label">성 : </label>
-					    <div class="col-xs-4">
-						   	<label class="radio-inline">
-							  <input type="radio" name="sex" id="sex1" value="남"> 남자
-							</label>
-							<label class="radio-inline">
-							  <input type="radio" name="sex" id="sex2" value="여"> 여자
-							</label>
-						</div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="id" class="col-xs-2 control-label">아이디 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="id" value="hrnoh">
+					    	<input type="input" class="form-control" id="id" value="${userVO.id }">
 					    </div>
 					    
 					    <label for="pwd" class="col-xs-2 control-label">비밀번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="pwd" value="1234">
+					    	<input type="input" class="form-control" id="pwd" value="${userVO.pwd }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
-					    <label for="phone" class="col-xs-2 control-label">전화번호 : </label>
+					  	<label for="phone" class="col-xs-2 control-label">이메일 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" value="031-123-5678">
+					    	<input type="input" class="form-control" id="phone" value="${userVO.email }">
 					    </div>
 					    
 					    <label for="mPhone" class="col-xs-2 control-label">휴대폰 번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" value="010-1234-5678">
-					    </div>
-					  </div>
-					  
-					  <div class="form-group">
-					    <label for="phone" class="col-xs-2 control-label">이메일 : </label>
-					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" value="031-123-5678">
-					    </div>
-					    
-					    <label for="mPhone" class="col-xs-2 control-label">주소 : </label>
-					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" value="010-1234-5678">
-					    </div>
-					  </div>
-					  
-					  <div class="form-group">
-					    <label for="phone" class="col-xs-2 control-label">등록일 : </label>
-					    <div class="col-xs-4">
-					    	<p class="form-control-static">2017-10-08 17:00</p>
+					    	<input type="input" class="form-control" id="mPhone" value="${userVO.mPhone }">
 					    </div>
 					  </div>		  
 					</form>

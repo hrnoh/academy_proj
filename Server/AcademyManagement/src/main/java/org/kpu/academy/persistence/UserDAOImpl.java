@@ -1,6 +1,8 @@
 package org.kpu.academy.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -43,6 +45,14 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<UserVO> listAll(String role) throws Exception {
 		// TODO Auto-generated method stub
-		return session.selectList(namespace + ".listAll", role);
+		Map<String, String> param = new HashMap<>();
+		param.put("role", role);
+		
+		return session.selectList(namespace + ".listAll", param);
+	}
+	
+	@Override
+	public List<UserVO> parentsList(Integer uno) throws Exception {
+		return session.selectList(namespace + ".parentsList", uno);
 	}
 }

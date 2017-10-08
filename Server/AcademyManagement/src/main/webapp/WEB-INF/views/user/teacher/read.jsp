@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="true"%>
+
 <%@ include file="../../layout/header.jsp" %>
 
 
@@ -36,32 +40,34 @@
 					  <div class="form-group">
 					    <label for="role" class="col-xs-2 control-label">구분 : </label>
 					    <div class="col-xs-4">
-					    	<select class="form-control" id="role">
-							  <option>학생</option>
-							  <option>후원자</option>
-							  <option>강사</option>
+					    	<select class="form-control" name="role" id="role">
+							  <option value="학생" <c:out value="${userVO.role eq '학생'? 'selected':'' }"/>>학생</option>
+							  <option value="학부모" <c:out value="${userVO.role eq '학부모'? 'selected':'' }"/>>학부모</option>
+							  <option value="강사" <c:out value="${userVO.role eq '강사'? 'selected':'' }"/>>강사</option>
 							</select>
 					    </div>
 					    
 					    <label for="name" class="col-xs-2 control-label">이름 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" value="노형래">
+					    	<input type="input" class="form-control" name="name" id="name" value="${userVO.name }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">	    
-					    <label for="name" class="col-xs-2 control-label">나이 : </label>
+					    <label for="age" class="col-xs-2 control-label">나이 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" value="23">
+					    	<input type="input" class="form-control" name="age" id="age" value="${userVO.age }">
 					    </div>
 					    
 					    <label for="name" class="col-xs-2 control-label">성 : </label>
 					    <div class="col-xs-4">
 						   	<label class="radio-inline">
-							  <input type="radio" name="sex" id="sex1" value="남"> 남자
+							  <input type="radio" name="sex" id="sex1" value="남" 
+							  	<c:out value="${userVO.sex eq '남'? 'checked':'' }"/>> 남자
 							</label>
 							<label class="radio-inline">
-							  <input type="radio" name="sex" id="sex2" value="여"> 여자
+							  <input type="radio" name="sex" id="sex2" value="여"
+							    <c:out value="${userVO.sex eq '여'? 'checked':'' }"/>> 여자
 							</label>
 						</div>
 					  </div>

@@ -36,40 +36,29 @@
 		delete from user where uno = #{uno}
 	</delete>
 	
-	<select id="listAll" resultType="UserVO">
+	<select id="listAll"  resultType="UserVO" parameterType="java.lang.String">
 	<![CDATA[
 		select *
 		from user
+	]]>
+		<if test="'student'.equals(role)">
+			where role like '학생' OR role like '학부모'
+		</if>
+		<if test="'teacher'.equals(role)">
+			where role like '강사'
+		</if>
+	<![CDATA[
 		order by uno desc, regdate desc
 	]]>
 	</select>
 	
-	<!-- 학생 리스트 -->
-	<select id="studentList" resultType="UserVO">
+	<select id="parentsList" resultType="UserVO">
 	<![CDATA[
 		select *
 		from user
-		where role like 'student' OR role like 'parents'
+		where cno = #{uno}
 		order by uno desc, regdate desc
 	]]>
 	</select>
 	
-	<!-- 강사 리스트 -->
-	<select id="teacherList" resultType="UserVO">
-	<![CDATA[
-		select *
-		from user
-	]]>
-		<if test="role != null">
-		<if test="role == 'student'.toString()">
-			where role like 'student' OR role like 'parents'
-		</if>
-		<if test="role == 'teacher'.toString()">
-			where role like 'teacher'
-		</if>
-		</if>
-	<![CDATA[
-		order by uno desc, regdate desc
-	]]>
-	</select>
 </mapper>

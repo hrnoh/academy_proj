@@ -80,7 +80,7 @@ public class UserDAOTest {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void listAllTest() {
 		List<UserVO> list;
 		

@@ -14,4 +14,6 @@ public interface UserService {
 	public void remove(Integer uno) throws Exception;
 	
 	public List<UserVO> listAll(String role) throws Exception;
+	
+	public List<UserVO> parentsList(Integer uno) throws Exception;
 }

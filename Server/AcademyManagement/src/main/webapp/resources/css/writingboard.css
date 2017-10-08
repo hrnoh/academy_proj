@@ -1,0 +1,21 @@
+@charset "UTF-8";
+#title {
+	height: 25;
+	font-family: '돋움';
+	font-size: 14;
+	text-align: center;
+}
+
+table.border {
+	border: 3px solid lightgray;
+}
+
+table.border th {
+	border: 1px solid lightgray;
+	width: 60;
+}
+
+td textarea {
+	resize: none;
+}
+/* 출처: http://all-record.tistory.com/127 [세상의 모든 기록] */

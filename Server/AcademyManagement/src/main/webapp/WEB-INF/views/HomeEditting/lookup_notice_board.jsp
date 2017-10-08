@@ -3,7 +3,7 @@
 <%@include file="../layout/header.jsp" %>
 <title>공지사항 조회</title>
 <!-- 공지사항 게시판 css -->
-<link rel="stylesheet" href="resources/css/noticeboard.css">
+<link rel="stylesheet" href="/resources/css/noticeboard.css">
 
 <!-- 센터 -->
 <div class="container text-center">

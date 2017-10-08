@@ -4,7 +4,7 @@
 <title>홈페이지 - KPU Academy</title>
 
 <!-- 공지사항 게시판 css -->
-<link rel="stylesheet" href="/resources/css/noticeboard.css">
+<link rel="stylesheet" href="resources/css/noticeboard.css">
 
 <!-- 센터 -->
 <div class="container text-center">
@@ -12,12 +12,15 @@
 
 		<!-- left menu -->
 		<div class="col-xs-2">
-			<ul class="list-group">
-				<li class="list-group-item active">HOME</li>
-				<li class="list-group-item"><a href="#introduce">학원소개</a></li>
-				<li class="list-group-item"><a href="#notice">공지사항</a></li>
-			</ul>
+			<div class="panel-heading"><b>HOME</b>
+				<ul class="list-group">
+					
+					<li class="list-group-item"><a href="#introduce">학원소개</a></li>
+					<li class="list-group-item"><a href="#notice">공지사항</a></li>
+				</ul>
+			</div>
 		</div>
+	
 
 		<!-- contents -->
 		<div class="col-xs-10 text-left">

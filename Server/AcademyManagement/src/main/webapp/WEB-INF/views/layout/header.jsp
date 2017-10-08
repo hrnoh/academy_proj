@@ -1,4 +1,20 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- 반응형 제거 -->
+<link rel="stylesheet" href="resources/css/nonresponsive.css">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- [if lt IE 9] -->
+<!-- <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+<!-- <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> -->
+</head>
+<body>
 
 <!-- 로고 / nav -->
 <div class="container">
@@ -33,11 +49,11 @@
 						<li><a href="#">학원 소개</a></li>
 						<li><a href="#">공지사항</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">메인페이지
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">홈페이지
 						수정 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">공지사항 등록</a></li>
+						<li><a href="#">공지사항 조회</a></li>
 						<li><a href="#">공지사항 수정/삭제</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
@@ -104,5 +120,4 @@
 			</ul>
 		</div>
 	</div>
-
 </div>

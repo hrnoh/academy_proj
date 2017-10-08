@@ -8,3 +8,22 @@
 		: 제 001호 <br> ⓒ KPU Academy Inc. 2017 <br>
 	</p>
 </footer>
+
+<!-- script -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- nav js -->
+<script>
+		$(document).ready(function() {
+			$("#nav li").hover(function() {
+				$(this).attr("class", "focus open");},
+				function() {
+					$(this).attr("class", "");
+				});
+		});
+	</script>
+</body>
+</html>

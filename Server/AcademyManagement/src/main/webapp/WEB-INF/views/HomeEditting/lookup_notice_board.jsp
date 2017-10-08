@@ -19,7 +19,7 @@
 			<!-- 공지사항 게시판 -->
 			<%@include file="../layout/notice_board.jsp" %>
 			<div id="write">
-				<a href="#">글쓰기</a>
+				<a href="notice_writing">글쓰기</a>
 			</div>
 			
 		</div>

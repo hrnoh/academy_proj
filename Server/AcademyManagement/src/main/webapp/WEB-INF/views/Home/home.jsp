@@ -12,7 +12,9 @@
 
 		<!-- left menu -->
 		<div class="col-xs-2">
-			<div class="panel-heading"><b>HOME</b>
+			<div class="panel panel-default">
+				<div class="panel-heading"><b>HOME</b></div>
+				
 				<ul class="list-group">
 					
 					<li class="list-group-item"><a href="#introduce">학원소개</a></li>

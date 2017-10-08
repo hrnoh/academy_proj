@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.kpu.academy.mapper.DiaryMapper">
+
+	<insert id="create">
+		insert into diary (content, year, month, day, uno)
+		values (#{content}, #{year}, #{month}, #{day}, #{uno})
+	</insert>
+
+	<select id="read" resultType="DiaryVO">
+		select *
+		from diary
+		where dno = #{dno}
+	</select>
+	
+	<update id="update">
+		update diary set content=#{content}, year=#{year}, month=#{month}, day=#{day}
+		where dno = #{dno}
+	</update>
+	
+	<delete id="delete">
+		delete from diary where dno = #{dno}
+	</delete>
+	
+	<select id="listAll" resultType="DiaryVO">
+	<![CDATA[
+		select *
+		from diary
+		order by dno desc
+	]]>
+	</select>
+</mapper>

@@ -4,7 +4,7 @@
 <title>홈페이지 - KPU Academy</title>
 
 <!-- 공지사항 게시판 css -->
-<link rel="stylesheet" href="resources/css/noticeboard.css">
+<link rel="stylesheet" href="/resources/css/noticeboard.css">
 
 <!-- 센터 -->
 <div class="container text-center">

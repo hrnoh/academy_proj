@@ -1,14 +1,14 @@
 package org.kpu.academy.domain;
 
 public class TakeCourseVO {
-	private Integer sno;
+	private Integer uno;
 	private Integer lno;
 	private Double grade;
-	public Integer getSno() {
-		return sno;
+	public Integer getUno() {
+		return uno;
 	}
-	public void setSno(Integer sno) {
-		this.sno = sno;
+	public void setUno(Integer uno) {
+		this.uno = uno;
 	}
 	public Integer getLno() {
 		return lno;
@@ -24,8 +24,6 @@ public class TakeCourseVO {
 	}
 	@Override
 	public String toString() {
-		return "TakeCourseVO [sno=" + sno + ", lno=" + lno + ", grade=" + grade + "]";
+		return "TakeCourseVO [uno=" + uno + ", lno=" + lno + ", grade=" + grade + "]";
 	}
-	
-	
 }

@@ -7,11 +7,7 @@ import javax.inject.Inject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.kpu.academy.domain.LectureVO;
-import org.kpu.academy.domain.StudentVO;
-import org.kpu.academy.domain.TeacherVO;
 import org.kpu.academy.persistence.LectureDAO;
-import org.kpu.academy.persistence.StudentDAO;
-import org.kpu.academy.persistence.TeacherDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.test.context.ContextConfiguration;
@@ -29,7 +25,7 @@ public class LectureDAOTest {
 	public void createTest() {
 		LectureVO vo = new LectureVO();
 		vo.setLname("testLName");
-		vo.setTno(1);
+		vo.setUno(1);
 		vo.setDay("testDay");
 		vo.setStartTime("14:00");
 		vo.setEndTime("15:00");
@@ -63,7 +59,7 @@ public class LectureDAOTest {
 		LectureVO vo;
 		
 		try {
-			vo = dao.read(1);
+			vo = dao.read(2);
 			vo.setLname("modifiedName");
 			dao.update(vo);
 		} catch (Exception e) {

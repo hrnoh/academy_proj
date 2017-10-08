@@ -9,7 +9,7 @@ public class LectureVO {
 	private Integer personnel;
 	private String room;
 	private Integer target;
-	private Integer tno;
+	private Integer uno;
 	public Integer getLno() {
 		return lno;
 	}
@@ -58,16 +58,16 @@ public class LectureVO {
 	public void setTarget(Integer target) {
 		this.target = target;
 	}
-	public Integer getTno() {
-		return tno;
+	public Integer getUno() {
+		return uno;
 	}
-	public void setTno(Integer tno) {
-		this.tno = tno;
+	public void setUno(Integer uno) {
+		this.uno = uno;
 	}
 	@Override
 	public String toString() {
 		return "LectureVO [lno=" + lno + ", lname=" + lname + ", day=" + day + ", startTime=" + startTime + ", endTime="
-				+ endTime + ", personnel=" + personnel + ", room=" + room + ", target=" + target + ", tno=" + tno + "]";
+				+ endTime + ", personnel=" + personnel + ", room=" + room + ", target=" + target + ", uno=" + uno + "]";
 	}
 	
 	

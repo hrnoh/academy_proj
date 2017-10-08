@@ -1,26 +1,17 @@
 package org.kpu.academy.domain;
 
-import java.util.Date;
-
 public class DiaryVO {
 	private Integer dno;
-	private String title;
 	private String content;
-	private Date regDate;
-	private Date modDate;
-	private Integer sponsorNum;
-	private Integer tno;
+	private String year;
+	private String month;
+	private String day;
+	private Integer uno;
 	public Integer getDno() {
 		return dno;
 	}
 	public void setDno(Integer dno) {
 		this.dno = dno;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -28,35 +19,33 @@ public class DiaryVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegDate() {
-		return regDate;
+	public String getYear() {
+		return year;
 	}
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setYear(String year) {
+		this.year = year;
 	}
-	public Date getModDate() {
-		return modDate;
+	public String getMonth() {
+		return month;
 	}
-	public void setModDate(Date modDate) {
-		this.modDate = modDate;
+	public void setMonth(String month) {
+		this.month = month;
 	}
-	public Integer getSponsorNum() {
-		return sponsorNum;
+	public String getDay() {
+		return day;
 	}
-	public void setSponsorNum(Integer sponsorNum) {
-		this.sponsorNum = sponsorNum;
+	public void setDay(String day) {
+		this.day = day;
 	}
-	public Integer getTno() {
-		return tno;
+	public Integer getUno() {
+		return uno;
 	}
-	public void setTno(Integer tno) {
-		this.tno = tno;
+	public void setUno(Integer uno) {
+		this.uno = uno;
 	}
 	@Override
 	public String toString() {
-		return "DiaryVO [dno=" + dno + ", title=" + title + ", content=" + content + ", regDate=" + regDate
-				+ ", modDate=" + modDate + ", sponsorNum=" + sponsorNum + ", tno=" + tno + "]";
+		return "DiaryVO [dno=" + dno + ", content=" + content + ", year=" + year + ", month=" + month + ", day=" + day
+				+ ", uno=" + uno + "]";
 	}
-	
-	
 }

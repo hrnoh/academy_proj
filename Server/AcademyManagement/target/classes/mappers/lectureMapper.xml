@@ -5,8 +5,8 @@
 <mapper namespace="org.kpu.academy.mapper.LectureMapper">
 
 	<insert id="create">
-		insert into lecture (lname, day, startTime, endTime, personnel, room, target, tno)
-		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, #{tno})
+		insert into lecture (lname, day, startTime, endTime, personnel, room, target, uno)
+		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, #{uno})
 	</insert>
 
 	<select id="read" resultType="LectureVO">
@@ -16,7 +16,7 @@
 	</select>
 	
 	<update id="update">
-		update lecture set lname=#{lname}, teacher=#{teacher}, day=#{day}, startTime=#{startTime}, endTime=#{endTime}, personnel=#{personnel}, room=#{room}, target=#{target}
+		update lecture set lname=#{lname}, day=#{day}, startTime=#{startTime}, endTime=#{endTime}, personnel=#{personnel}, room=#{room}, target=#{target}, uno=#{uno}
 		where lno = #{lno}
 	</update>
 	

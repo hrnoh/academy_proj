@@ -16,14 +16,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!-- nav js -->
-<script>
-		$(document).ready(function() {
-			$("#nav li").hover(function() {
-				$(this).attr("class", "focus open");},
-				function() {
-					$(this).attr("class", "");
-				});
-		});
-	</script>
+<script src="/resources/js/nav.js"></script>
 </body>
 </html>

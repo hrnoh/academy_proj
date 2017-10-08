@@ -1,5 +1,3 @@
-<!-- nav js -->
-
 $(document).ready(function() {
 	var now = $("#nav li:active");
 	var state = now.clone();

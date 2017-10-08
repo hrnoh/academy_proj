@@ -13,14 +13,7 @@
 	<div class="row content">
 
 		<!-- left menu -->
-		<div class="col-xs-2">
-			<ul class="list-group">
-				<li class="list-group-item active">홈페이지 수정</li>
-				<li class="list-group-item"><a href="#">공지사항 조회</a></li>
-				<li class="list-group-item"><a href="#">공지사항 작성</a></li>
-				<li class="list-group-item"><a href="#">공지사항 수정/삭제</a></li>
-			</ul>
-		</div>
+		<%@include file="left_menu.jsp"%>
 
 		<!-- contents -->
 		<div class="col-xs-10 text-left">

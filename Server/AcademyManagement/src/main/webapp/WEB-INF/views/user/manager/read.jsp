@@ -36,51 +36,61 @@
 				  <div class="panel-body">
 				  	
 				  	<!-- 상세 정보 -->
-				  	<form class="form-horizontal">
+				  	<form class="form-horizontal" action="/user/manager/modify" method="post">
+				  	
+				  	  	<input type="hidden" name="uno" value="1">
+					  	<input type="hidden" name="role" value="관리자">
+					  	<input type="hidden" name="age" value="${userVO.age }">
+					  	<input type="hidden" name="sex" value="${userVO.sex }">
+					  	<input type="hidden" name="address" value="${userVO.address }">
+				  	
 					  <div class="form-group">
 					    <label for="role" class="col-xs-2 control-label">구분 : </label>
 					    <div class="col-xs-4">
 					    	<p class="form-control-static">관리자</p>
+					    	
 					    </div>
 					    
 					    <label for="name" class="col-xs-2 control-label">이름 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" value="${userVO.name }">
+					    	<input type="input" class="form-control" name="name" id="name" value="${userVO.name }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="id" class="col-xs-2 control-label">아이디 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="id" value="${userVO.id }">
+					    	<input type="input" class="form-control" name="id" id="id" value="${userVO.id }">
 					    </div>
 					    
 					    <label for="pwd" class="col-xs-2 control-label">비밀번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="pwd" value="${userVO.pwd }">
+					    	<input type="input" class="form-control" name="pwd" id="pwd" value="${userVO.pwd }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
-					  	<label for="phone" class="col-xs-2 control-label">이메일 : </label>
+					  	<label for="email" class="col-xs-2 control-label">이메일 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" value="${userVO.email }">
+					    	<input type="email" class="form-control" name="email" id="email" value="${userVO.email }">
 					    </div>
 					    
 					    <label for="mPhone" class="col-xs-2 control-label">휴대폰 번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" value="${userVO.mPhone }">
+					    	<input type="input" class="form-control" name="mPhone" id="mPhone" value="${userVO.mPhone }">
 					    </div>
 					  </div>		  
-					</form>
-				  	<!-- 상세 정보 끝 -->
+					
 				  	
 					<hr/>
 					<div class="row col-xs-12">
 						<div class="col-xs-push-11 col-xs-1 text-right">
-						 	<input class="btn btn-default" type="button" value="수정">
+						 	<input class="btn btn-default" type="submit" value="수정">
 						 </div>
 					</div>
+					
+					</form>
+				  	<!-- 상세 정보 끝 -->
 					
 				  </div>
 				  <!-- 패널 바디 끝 -->
@@ -89,5 +99,13 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script>
+		var msg = "${msg}";
+		
+		if(msg == "SUCCESS") {
+			alert("처리가 완료되었습니다.");
+		}
+	</script>
+	
 <%@ include file="../../layout/footer.jsp" %>

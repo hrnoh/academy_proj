@@ -36,28 +36,29 @@
 				  <div class="panel-body">
 				  	
 				  	<!-- 상세 정보 -->
-				  	<form class="form-horizontal">
+				  	<form class="form-horizontal" method="post">
 					  <div class="form-group">
 					    <label for="role" class="col-xs-2 control-label">구분 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="role" value="학생" disabled>
+					    	<input type="input" class="form-control" name="role" id="role" value="학생" disabled>
+					    	<input type="hidden" name="role" value="학생">
 					    </div>
 					    
 					    <label for="name" class="col-xs-2 control-label">이름 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="name" placeholder="이름을 입력하세요">
+					    	<input type="input" class="form-control" name="name" id="name" placeholder="이름을 입력하세요">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
-					    <label for="role" class="col-xs-2 control-label">학년: </label>
+					    <label for="grade" class="col-xs-2 control-label">학년: </label>
 					    <div class="col-xs-2">
-					    	<input type="input" class="form-control" id="role" placeholder="학년을 입력하세요">
+					    	<input type="input" class="form-control" name="grade" id="grade" placeholder="학년을 입력하세요">
 					    </div>
 					    
-					    <label for="name" class="col-xs-2 control-label">나이:</label>
+					    <label for="age" class="col-xs-2 control-label">나이:</label>
 					    <div class="col-xs-2">
-					    	<input type="input" class="form-control" id="name" placeholder="나이를 입력하세요">
+					    	<input type="input" class="form-control" name="age" id="age" placeholder="나이를 입력하세요">
 					    </div>
 					    
 					    <label for="name" class="col-xs-1 control-label">성 : </label>
@@ -74,46 +75,46 @@
 					  <div class="form-group">
 					    <label for="id" class="col-xs-2 control-label">아이디 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="id" placeholder="아이디를 입력하세요">
+					    	<input type="input" class="form-control" name="id" id="id" placeholder="아이디를 입력하세요">
 					    </div>
 					    
 					    <label for="pwd" class="col-xs-2 control-label">비밀번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="pwd" placeholder="비밀번호를 입력하세요">
+					    	<input type="input" class="form-control" name="pwd" id="pwd" placeholder="비밀번호를 입력하세요">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="phone" class="col-xs-2 control-label">전화번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" placeholder="전화번호를 입력하세요">
+					    	<input type="input" class="form-control" name="phone" id="phone" placeholder="전화번호를 입력하세요">
 					    </div>
 					    
 					    <label for="mPhone" class="col-xs-2 control-label">휴대폰 번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" placeholder="휴대폰 번호를 입력하세요">
+					    	<input type="input" class="form-control" name="mPhone" id="mPhone" placeholder="휴대폰 번호를 입력하세요">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
-					    <label for="phone" class="col-xs-2 control-label">이메일 : </label>
+					    <label for="email" class="col-xs-2 control-label">이메일 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" placeholder="이메일을 입력하세요">
+					    	<input type="email" class="form-control" name="email" id="email" placeholder="이메일을 입력하세요">
 					    </div>
 					    
-					    <label for="mPhone" class="col-xs-2 control-label">주소 : </label>
+					    <label for="address" class="col-xs-2 control-label">주소 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" placeholder="주소를 입력하세요">
+					    	<input type="input" class="form-control" name="address" id="address" placeholder="주소를 입력하세요">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">	    
-					    <label for="mPhone" class="col-xs-2 control-label">상태 : </label>
+					    <label for="status" class="col-xs-2 control-label">상태 : </label>
 					    <div class="col-xs-4">
-					    	<select class="form-control">
-							  <option>수강</option>
-							  <option>휴원</option>
-							  <option>퇴원</option>
+					    	<select class="form-control" name="status" id="status">
+							  <option value="수강">수강</option>
+							  <option value="휴원">휴원</option>
+							  <option value="퇴원">퇴원</option>
 							</select>
 					    </div>
 					  </div>
@@ -122,8 +123,8 @@
 					<hr/>
 					<div class="row">
 						<div class="col-xs-push-9 col-xs-3 text-right">
-						 	<input class="btn btn-default" type="button" value="등록">
-						 	<input class="btn btn-default" type="button" value="목록">
+						 	<input class="btn btn-default" type="submit" value="등록">
+						 	<input id="listBtn" class="btn btn-default" type="button" value="목록">
 						 </div>
 					</div>
 					
@@ -137,5 +138,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<script>
+		$("#listBtn").on("click", function(event) {
+			self.location = "/user/student"
+		})
+	</script>
 
 <%@ include file="../../layout/footer.jsp" %>

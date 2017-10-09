@@ -101,11 +101,9 @@
 						관리 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">학생 정보 조회/수정</a></li>
-						<li><a href="#">강사 정보 조회/수정</a></li>
-						<li class="divider"></li>
-						<li class="dropdown-header">관리자 계정 관리</li>
-						<li><a href="#">관리자 정보 수정</a></li>
+						<li><a href="/user/student">학생 정보 조회/수정</a></li>
+						<li><a href="/user/teacher">강사 정보 조회/수정</a></li>
+						<li><a href="/user/manager">관리자 정보 수정</a></li>
 					</ul></li>
 			</ul>
 		</div>

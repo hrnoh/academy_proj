@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.kpu.academy.domain.BoardVO;
+import org.kpu.academy.domain.Criteria;
 import org.kpu.academy.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
 
@@ -44,4 +45,13 @@ public class BoardServiceImpl implements BoardService {
 		return boardDAO.listAll();
 	}
 
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+		return boardDAO.listPage(cri);
+	}
+	
+	@Override
+	public Integer listCount() throws Exception {
+		return boardDAO.listCount();
+	}
 }

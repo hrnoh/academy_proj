@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.kpu.academy.domain.BoardVO;
+import org.kpu.academy.domain.Criteria;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -44,6 +45,16 @@ public class BoardDAOImpl implements BoardDAO {
 	public List<BoardVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace + ".listAll");
+	}
+	
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".listPage", cri);
+	}
+	
+	@Override
+	public Integer listCount() throws Exception {
+		return session.selectOne(namespace + ".listCount");
 	}
 
 }

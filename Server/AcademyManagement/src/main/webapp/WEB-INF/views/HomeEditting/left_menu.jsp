@@ -13,14 +13,15 @@
 		<div class="list-group">
 			<c:set var="uri" value="${pageContext.request.requestURI }" />
 			<c:choose>
-				<c:when test="${uri eq '/WEB-INF/views/HomeEditting/lookup_notice_board.jsp' }">
-					<a href="/HomeEditting/lookup_notice_board" class="list-group-item active">공지사항 조회</a>
-					<a href="/HomeEditting/notice_writing"	class="list-group-item">공지사항 작성</a>
+				<c:when test="${uri eq '/WEB-INF/views/HomeEditting/lookup_notice_board.jsp' 
+				|| uri eq '/WEB-INF/views/HomeEditting/notice_read.jsp' }">
+					<a href="/board/list" class="list-group-item active">공지사항 조회</a>
+					<a href="/board/regist"	class="list-group-item">공지사항 작성</a>
 				</c:when>
 				
 				<c:otherwise>
-					<a href="/HomeEditting/lookup_notice_board" class="list-group-item">공지사항 조회</a>
-					<a href="/HomeEditting/notice_writing" class="list-group-item active">공지사항 작성</a>
+					<a href="/board/list" class="list-group-item">공지사항 조회</a>
+					<a href="/board/regist" class="list-group-item active">공지사항 작성</a>
 				</c:otherwise>
 			</c:choose>
 			

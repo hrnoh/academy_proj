@@ -10,9 +10,10 @@
 	</insert>
 
 	<select id="read" resultType="BoardVO">
-		select *
-		from board
-		where bno = #{bno}
+		select board.bno, board.title, board.content, user.id as writer, board.regDate, board.viewCnt
+		from board join user on board.uno = user.uno
+		where board.bno = #{bno}
+		order by board.bno desc, board.regDate desc
 	</select>
 	
 	<update id="update">
@@ -26,9 +27,25 @@
 	
 	<select id="listAll" resultType="BoardVO">
 	<![CDATA[
-		select *
+		select board.bno, board.title, board.content, user.id as writer, board.regDate, board.viewCnt
+		from board join user on board.uno = user.uno
+		order by board.bno desc, board.regDate desc
+	]]>
+	</select>
+	
+	<select id="listPage" resultType="BoardVO">
+	<![CDATA[
+		select board.bno, board.title, board.content, user.id as writer, board.regDate, board.viewCnt
+		from board join user on board.uno = user.uno
+		order by board.bno desc, board.regDate desc
+		limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		select count(bno)
 		from board
-		order by bno desc, regdate desc
 	]]>
 	</select>
 </mapper>

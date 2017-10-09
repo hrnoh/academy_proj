@@ -20,30 +20,40 @@
 		<div class="col-xs-10 text-left">
 			
 			<!-- 공지사항 작성 -->
-			<h1>공지사항 작성</h1>
-			<form method="post" action="/board/regist" name="boardForm">
+			<h1>상세보기</h1>
+			<form method="post" action="/board/regist" id="boardForm">
 				
 				<!-- uno 추가 -->		
+				<input name="bno" type="hidden" value="${boardVO.bno }" />
 				<input name="uno" type="hidden" value="1" />
+				<input type='hidden' name='page' value="${cri.page}"> 
+				<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 				
 				<table class="border">
 					<tr>
 						<th id="title">제 목</th>
 						<td colspan="4">
-							<input name="title" type="text" size="72" maxlength="100" value="" />
+							<input name="title" type="text" size="72" maxlength="100" value="${boardVO.title }" disabled/>
 						</td>
 					</tr>
 					<tr>
-						<th id="title">내 용</th>
+						<th id="writer">작성자</th>
 						<td colspan="4">
-							<textarea name="content" cols="80"rows="20"></textarea>
+							<input name="title" type="text" size="72" maxlength="100" value="${boardVO.writer }" disabled/>
+						</td>
+					</tr>
+					<tr>
+						<th id="content">내 용</th>
+						<td colspan="4">
+							<textarea name="content" cols="80"rows="20" disabled>${boardVO.content }</textarea>
 						</td>
 					</tr>
 
 					<tr align="right" valign="middle">
 						<td colspan="5">
-							<input type="submit" value="등록"> 
-							<input type="reset" value="초기화">
+							<input id="modifyBtn" type="button" value="수정">
+							<input id="removeBtn" type="button" value="삭제">
+							<input id="listBtn" type="button" value="목록">
 						</td>
 					</tr>
 				</table>
@@ -67,7 +77,7 @@
 							<tr>
 								<td>${boardVO.bno}</td>
 								<td id="title"><a
-									href="/board/read?bno=${board.bno}">${boardVO.title}</a>
+									href="/board/read?page=${cri.page }&perPageNum=${cri.perPageNum}&bno=${boardVO.bno}">${boardVO.title}</a>
 									<c:if test="${boardVO.viewCnt >= 20}">
 										<span class="hit">hit!</span>
 									</c:if></td>
@@ -86,5 +96,30 @@
 	</div>
 </div>
 
+<script>
+		$(document).ready(function(){
+	
+			var formObj = $("#boardForm");
+			
+			console.log(formObj);
+			
+			$("#modifyBtn").on("click", function(){
+				formObj.attr("method", "get");
+				formObj.attr("action", "/board/modify");
+				formObj.submit();
+			});
+			
+			$("#removeBtn").on("click", function(){
+				formObj.attr("action", "/board/remove");
+				formObj.submit();
+			});
+			
+			$("#listBtn ").on("click", function(){
+				self.location = "/board/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
+			});
+			
+		});
+		
+</script>
 <!-- footer -->
 <%@include file="../layout/footer.jsp"%>

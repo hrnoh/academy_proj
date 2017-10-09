@@ -18,9 +18,6 @@
 			<h1>공지사항 조회</h1>
 			<!-- 공지사항 게시판 -->
 			<%@include file="../layout/notice_board.jsp" %>
-			<div id="write">
-				<a href="notice_writing">글쓰기</a>
-			</div>
 			
 		</div>
 		<!-- contents end -->

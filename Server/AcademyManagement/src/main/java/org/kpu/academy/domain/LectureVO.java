@@ -3,6 +3,7 @@ package org.kpu.academy.domain;
 public class LectureVO {
 	private Integer lno;
 	private String lname;
+	private String teacher;
 	private String day;
 	private String startTime;
 	private String endTime;
@@ -12,6 +13,12 @@ public class LectureVO {
 	private Integer uno;
 	public Integer getLno() {
 		return lno;
+	}
+	public String getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
 	}
 	public void setLno(Integer lno) {
 		this.lno = lno;
@@ -66,8 +73,9 @@ public class LectureVO {
 	}
 	@Override
 	public String toString() {
-		return "LectureVO [lno=" + lno + ", lname=" + lname + ", day=" + day + ", startTime=" + startTime + ", endTime="
-				+ endTime + ", personnel=" + personnel + ", room=" + room + ", target=" + target + ", uno=" + uno + "]";
+		return "LectureVO [lno=" + lno + ", lname=" + lname + ", teacher=" + teacher + ", day=" + day + ", startTime="
+				+ startTime + ", endTime=" + endTime + ", personnel=" + personnel + ", room=" + room + ", target="
+				+ target + ", uno=" + uno + "]";
 	}
 	
 	

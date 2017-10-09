@@ -39,7 +39,7 @@
 </div>
 
 <!-- 네비게이션 바 -->
-<div class="container">
+<div class="container" style="margin-bottom:10px;">
 
 	<div class="row">
 		<div class="col-xs-2"></div>
@@ -69,8 +69,8 @@
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">수업 조회</a></li>
-						<li><a href="#">수업 등록</a></li>
+						<li><a href="/lecture/list">수업 조회</a></li>
+						<li><a href="/lecture/regist">수업 등록</a></li>
 						<li><a href="#">수업 수정/삭제</a></li>
 						<li><a href="#">출석부 확인</a></li>
 						<li><a href="#">출석부 등록/수정</a></li>

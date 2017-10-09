@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.kpu.academy.domain.Criteria;
 import org.kpu.academy.domain.LectureVO;
 import org.springframework.stereotype.Repository;
 
@@ -44,6 +45,16 @@ public class LectureDAOImpl implements LectureDAO {
 	public List<LectureVO> listAll() throws Exception {
 		// TODO Auto-generated method stub
 		return session.selectList(namespace + ".listAll");
+	}
+	
+	@Override
+	public List<LectureVO> listPage(Criteria cri) throws Exception {
+		return session.selectList(namespace + ".listPage", cri);
+	}
+	
+	@Override
+	public int listCount() throws Exception {
+		return session.selectOne(namespace + ".listCount");
 	}
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.kpu.academy.domain.Criteria;
 import org.kpu.academy.domain.LectureVO;
 import org.kpu.academy.persistence.LectureDAO;
 import org.springframework.stereotype.Service;
@@ -44,4 +45,13 @@ public class LectureServiceImpl implements LectureService {
 		return lectureDAO.listAll();
 	}
 
+	@Override
+	public List<LectureVO> listPage(Criteria cri) throws Exception {
+		return lectureDAO.listPage(cri);
+	}
+	
+	@Override
+	public int listCount() throws Exception {
+		return lectureDAO.listCount();
+	}
 }

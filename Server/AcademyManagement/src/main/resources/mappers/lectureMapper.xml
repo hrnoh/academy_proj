@@ -6,13 +6,14 @@
 
 	<insert id="create">
 		insert into lecture (lname, day, startTime, endTime, personnel, room, target, uno)
-		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, #{uno})
+		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, 
+		(select uno from user where name=#{teacher} and role="강사"))
 	</insert>
 
 	<select id="read" resultType="LectureVO">
-		select *
-		from lecture
-		where lno = #{lno}
+		SELECT lno, lname, user.name as teacher, day, startTime, endTime, personnel, room, target
+		FROM lecture JOIN user ON lecture.uno = user.uno
+		WHERE lno = #{lno}
 	</select>
 	
 	<update id="update">
@@ -26,9 +27,25 @@
 	
 	<select id="listAll" resultType="LectureVO">
 	<![CDATA[
-		select *
-		from lecture
-		order by lno desc
+		SELECT lno, lname, user.name as teacher, day, startTime, endTime, personnel, room, target
+		FROM lecture JOIN user ON lecture.uno = user.uno
+		ORDER BY lno DESC
+	]]>
+	</select>
+	
+	<select id="listPage" resultType="LectureVO">
+	<![CDATA[
+		SELECT lno, lname, user.name as teacher, day, startTime, endTime, personnel, room, target
+		FROM lecture JOIN user ON lecture.uno = user.uno
+		ORDER BY lno DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(lno)
+		FROM lecture
 	]]>
 	</select>
 </mapper>

@@ -67,7 +67,7 @@
 							<tr>
 								<td>${boardVO.bno}</td>
 								<td id="title"><a
-									href="/board/read?bno=${board.bno}">${boardVO.title}</a>
+									href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a>
 									<c:if test="${boardVO.viewCnt >= 20}">
 										<span class="hit">hit!</span>
 									</c:if></td>

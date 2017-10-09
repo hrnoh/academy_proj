@@ -53,7 +53,7 @@
 									<td>${lectureVO.startTime} ~ ${lectureVO.endTime}</td>
 									<td>${lectureVO.personnel}</td>
 									<td>${lectureVO.room}</td>
-								<tr>
+								</tr>
 							</c:forEach>
 						 </tbody>
 					  </table>

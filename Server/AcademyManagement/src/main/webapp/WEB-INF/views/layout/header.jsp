@@ -85,19 +85,13 @@
 						<li><a href="#">알림장 등록</a></li>
 						<li><a href="#">알림장 수정/삭제</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">상담
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/consulting">상담
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="#">상담 신청/조회</a></li>
-						<li class="divider"></li>
-						<li class="dropdown-header">학생 상담</li>
-						<li><a href="#">학생 상담 조회</a></li>
-						<li><a href="#">학생 상담 등록</a></li>
-						<li class="divider"></li>
-						<li class="dropdown-header">학부모 상담</li>
-						<li><a href="#">학부모 상담 조회</a></li>
-						<li><a href="#">학부모 상담 등록</a></li>
+						<li><a href="/consulting/manager/view_application_list">상담 신청 내역 조회</a></li>
+						<li><a href="#">상담 신청</a></li>
+						<li><a href="#">상담 등록</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">계정
 						관리 <span class="caret"></span>

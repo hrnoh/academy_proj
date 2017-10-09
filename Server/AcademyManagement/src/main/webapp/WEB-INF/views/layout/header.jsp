@@ -90,8 +90,8 @@
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="/consulting/manager/view_application_list">상담 신청 내역 조회</a></li>
-						<li><a href="#">상담 신청</a></li>
-						<li><a href="#">상담 등록</a></li>
+						<li><a href="/consulting/student/consulting_apply">상담 신청</a></li>
+						<li><a href="/consulting/manager/consulting_regist">상담 등록</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">계정
 						관리 <span class="caret"></span>

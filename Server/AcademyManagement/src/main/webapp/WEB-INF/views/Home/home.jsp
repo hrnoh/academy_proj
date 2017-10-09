@@ -1,4 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- 헤더 -->
 <%@include file="../layout/header.jsp" %>
 <title>홈페이지 - KPU Academy</title>
@@ -40,7 +42,34 @@
 			
 			<!-- 공지사항 게시판 -->
 			<h1 id="notice">공지사항</h1>
-			<%@include file="../layout/notice_board.jsp" %>
+			<div>
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th width="10%">번호</th>
+							<th width="50%">제목</th>
+							<th width="10%">작성자</th>
+							<th width="20%">작성일</th>
+							<th width="10%">조회</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="boardVO" items="${list}" varStatus="status">
+							<tr>
+								<td>${boardVO.bno}</td>
+								<td id="title"><a
+									href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a>
+									<c:if test="${boardVO.viewCnt >= 20}">
+										<span class="hit">hit!</span>
+									</c:if></td>
+								<td>${boardVO.writer}</td>
+								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${boardVO.regDate}" /></td>
+								<td>${boardVO.viewCnt}</td>
+							<tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 			
 		</div>
 		<!-- contents end -->

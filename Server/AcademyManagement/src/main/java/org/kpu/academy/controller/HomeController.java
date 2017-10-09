@@ -1,5 +1,10 @@
 package org.kpu.academy.controller;
 
+
+import javax.inject.Inject;
+
+import org.kpu.academy.domain.Criteria;
+import org.kpu.academy.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/")
 public class HomeController {
 	
+	@Inject
+	private BoardService boardService;
+	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -25,7 +33,10 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String Home() {
+	public String Home(Model model) throws Exception {
+		
+		Criteria cri = new Criteria();
+		model.addAttribute("list", boardService.listPage(cri));
 		
 		return "Home/home";
 	}

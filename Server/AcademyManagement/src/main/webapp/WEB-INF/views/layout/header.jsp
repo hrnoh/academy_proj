@@ -21,7 +21,9 @@
 	<div class="row">
 		<div class="col-xs-4">
 			<div id="logo">
-				<img alt="logo" src="/resources/img/Logo2.jpg"></img>
+				<a href="/home">
+				<img alt="logo" src="/resources/img/Logo2.jpg"/>
+				</a>
 			</div>
 		</div>
 		<div class="col-xs-4"></div>
@@ -53,8 +55,8 @@
 						수정 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
-						<li><a href="/HomeEditting/lookup_notice_board">공지사항 조회</a></li>
-						<li><a href="/HomeEditting/notice_writing">공지사항 작성</a></li>
+						<li><a href="/board/list">공지사항 조회</a></li>
+						<li><a href="/board/regist">공지사항 작성</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">일정
 						<span class="caret"></span>

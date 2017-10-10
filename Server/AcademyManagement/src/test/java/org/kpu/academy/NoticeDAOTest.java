@@ -81,7 +81,7 @@ public class NoticeDAOTest {
 		List<NoticeVO> list;
 		
 		try {
-			list = dao.listAll();
+			list = dao.listAll(2);
 			
 			for(NoticeVO vo : list)
 				logger.info(vo.toString());

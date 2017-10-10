@@ -1,12 +1,24 @@
 package org.kpu.academy.domain;
 
 public class AttendanceVO {
+	private Integer ano;
 	private Integer uno;
 	private Integer lno;
 	private String year;
 	private String month;
 	private String day;
+	private String fullDate;
 	private String type;
+	
+	public Integer getAno() {
+		return ano;
+	}
+	public void setAno(Integer ano) {
+		this.ano = ano;
+	}
+	public void setFullDate(String fullDate) {
+		this.fullDate = fullDate;
+	}
 	public Integer getUno() {
 		return uno;
 	}
@@ -43,10 +55,13 @@ public class AttendanceVO {
 	public void setType(String type) {
 		this.type = type;
 	}
+	public String getFullDate() {
+		return this.fullDate;
+	}
 	@Override
 	public String toString() {
-		return "AttendanceVO [uno=" + uno + ", lno=" + lno + ", year=" + year + ", month=" + month + ", day=" + day
-				+ ", type=" + type + "]";
+		return "AttendanceVO [ano=" + ano + ", uno=" + uno + ", lno=" + lno + ", year=" + year + ", month=" + month
+				+ ", day=" + day + ", fullDate=" + fullDate + ", type=" + type + "]";
 	}
 	
 	

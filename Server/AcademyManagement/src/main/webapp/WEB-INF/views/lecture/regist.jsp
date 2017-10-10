@@ -6,7 +6,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 
-<title>학생 관리</title>
+<title>수업 관리</title>
 
 <div class="container text-center">
 		<div class="row content">
@@ -106,6 +106,7 @@
 				  
 			</div>
 		</div>
+</div>
 </div>
 	
 <script>

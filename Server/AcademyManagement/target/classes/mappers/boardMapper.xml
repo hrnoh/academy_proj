@@ -16,6 +16,11 @@
 		order by board.bno desc, board.regDate desc
 	</select>
 	
+	<update id="updateViewCnt">
+		update board set viewCnt = viewCnt + 1
+		where board.bno = #{bno}
+	</update>
+	
 	<update id="update">
 		update board set title=#{title}, content=#{content}, modDate=now()
 		where bno = #{bno}

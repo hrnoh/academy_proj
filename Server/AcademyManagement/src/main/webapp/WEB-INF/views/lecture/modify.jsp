@@ -7,7 +7,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 
-<title>학생 관리</title>
+<title>수업 관리</title>
 
 <div class="container text-center">
 		<div class="row content">
@@ -19,8 +19,10 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list" class="list-group-item active">수업 조회</a>
-				    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list-group-item">수업 목록</a>
+				  	<a href="/lecture/read?page=${cri.page}&perPageNum=${cri.perPageNum}&lno=${lectureVO.lno}" class="list-group-item active">수업 상세</a>
+				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item">알림장</a>
+				  	<a href="" class="list-group-item">수강생</a>
 				  </div>
 				</div>
 			</div>
@@ -77,7 +79,7 @@
 						  <div class="form-group">
 						    <label for="day" class="col-xs-2 control-label">요일:</label>
 							 <div class="col-xs-2">
-							 	 <select class="form-control" name="day" value="${lectureVO.day }" multiple>
+							 	 <select class="form-control" name="day" multiple>
 									  <option value="월" <c:out value="${fn:contains(lectureVO.day, '월')? 'selected':''}"/>>월</option>
 									  <option value="화" <c:out value="${fn:contains(lectureVO.day, '화')? 'selected':''}"/>>화</option>
 									  <option value="수" <c:out value="${fn:contains(lectureVO.day, '수')? 'selected':''}"/>>수</option>
@@ -113,6 +115,7 @@
 				  
 			</div>
 		</div>
+</div>
 </div>
 	
 <script>

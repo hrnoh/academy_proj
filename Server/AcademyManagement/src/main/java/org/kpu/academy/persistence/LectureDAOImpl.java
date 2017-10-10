@@ -1,12 +1,16 @@
 package org.kpu.academy.persistence;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.kpu.academy.domain.AttendanceVO;
 import org.kpu.academy.domain.Criteria;
 import org.kpu.academy.domain.LectureVO;
+import org.kpu.academy.domain.TakeCourseVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -56,5 +60,76 @@ public class LectureDAOImpl implements LectureDAO {
 	public int listCount() throws Exception {
 		return session.selectOne(namespace + ".listCount");
 	}
-
+	
+	@Override
+	public void sCreate(TakeCourseVO vo) throws Exception {
+		session.insert(namespace + ".sCreate", vo);
+	}
+	
+	@Override
+	public TakeCourseVO sRead(Integer lno, Integer uno) throws Exception {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("lno", lno);
+		params.put("uno", uno);
+		
+		return session.selectOne(namespace + ".sRead", params);
+	}
+	
+	@Override
+	public void sUpdate(TakeCourseVO vo) throws Exception {
+		session.update(namespace + ".sUpdate", vo);
+	}
+	
+	@Override
+	public void sDelete(Integer lno, Integer uno) throws Exception {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("lno", lno);
+		params.put("uno", uno);
+		
+		session.delete(namespace + ".sDelete", params);
+	}
+	
+	@Override
+	public List<TakeCourseVO> sList(Criteria cri, Integer lno) throws Exception {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("pageStart", cri.getPageStart());
+		params.put("perPageNum", cri.getPerPageNum());
+		params.put("lno", lno);
+		
+		return session.selectList(namespace + ".sList", params);
+	}
+	
+	@Override
+	public int sListCount(Integer lno) throws Exception {
+		return session.selectOne(namespace + ".sListCount", lno);
+	}
+	
+	@Override
+	public void aCreate(AttendanceVO vo) throws Exception {
+		session.insert(namespace + ".aCreate", vo);
+	}
+	
+	@Override
+	public AttendanceVO aRead(Integer ano) throws Exception {	
+		return session.selectOne(namespace + ".aRead", ano);
+	}
+	
+	@Override
+	public void aUpdate(AttendanceVO vo) throws Exception {
+		session.update(namespace + ".aUpdate", vo);
+	}
+	
+	@Override
+	public void aDelete(Integer ano) throws Exception {
+		session.delete(namespace + ".aDelete", ano);
+	}
+	
+	@Override
+	public List<AttendanceVO> aList(Integer lno, Integer uno) throws Exception {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("lno", lno);
+		params.put("uno", uno);
+		
+		return session.selectList(namespace + ".aList", params);
+	}
 }

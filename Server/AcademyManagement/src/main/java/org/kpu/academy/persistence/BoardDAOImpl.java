@@ -28,6 +28,11 @@ public class BoardDAOImpl implements BoardDAO {
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace + ".read", bno);
 	}
+	
+	@Override
+	public void updateViewCnt(Integer bno) throws Exception {
+		session.update(namespace + ".updateViewCnt", bno);
+	}
 
 	@Override
 	public void update(BoardVO vo) throws Exception {

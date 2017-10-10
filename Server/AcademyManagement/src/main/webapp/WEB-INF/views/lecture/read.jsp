@@ -6,7 +6,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 
-<title>학생 관리</title>
+<title>수업 관리</title>
 
 <div class="container text-center">
 		<div class="row content">
@@ -18,8 +18,10 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list" class="list-group-item active">수업 조회</a>
-				    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list-group-item">수업 목록</a>
+				  	<a href="" class="list-group-item active">수업 상세</a>
+				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item">알림장</a>
+				  	<a href="" class="list-group-item">수강생</a>
 				  </div>
 				</div>
 			</div>
@@ -99,6 +101,7 @@
 				  
 			</div>
 		</div>
+</div>
 </div>
 	
 <script>

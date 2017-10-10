@@ -4,13 +4,27 @@ import java.util.Date;
 
 public class NoticeVO {
 	private Integer nno;
+	private String lname;
 	private String title;
 	private String content;
+	private String writer;
 	private Date regDate;
 	private Date modDate;
 	private Integer viewCnt;
 	private Integer uno;
 	private Integer lno;
+	public String getLname() {
+		return lname;
+	}
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
 	public Integer getNno() {
 		return nno;
 	}
@@ -61,8 +75,9 @@ public class NoticeVO {
 	}
 	@Override
 	public String toString() {
-		return "NoticesVO [nno=" + nno + ", title=" + title + ", content=" + content + ", regDate=" + regDate
-				+ ", modDate=" + modDate + ", viewCnt=" + viewCnt + ", uno=" + uno + ", lno=" + lno + "]";
+		return "NoticeVO [nno=" + nno + ", lname=" + lname + ", title=" + title + ", content=" + content + ", writer="
+				+ writer + ", regDate=" + regDate + ", modDate=" + modDate + ", viewCnt=" + viewCnt + ", uno=" + uno
+				+ ", lno=" + lno + "]";
 	}
 	
 	

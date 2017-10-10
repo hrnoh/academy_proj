@@ -8,6 +8,7 @@ import org.kpu.academy.domain.BoardVO;
 import org.kpu.academy.domain.Criteria;
 import org.kpu.academy.persistence.BoardDAO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -21,9 +22,11 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.create(vo);
 	}
 
+	@Transactional
 	@Override
 	public BoardVO read(Integer bno) throws Exception {
 		// TODO Auto-generated method stub
+		boardDAO.updateViewCnt(bno);
 		return boardDAO.read(bno);
 	}
 

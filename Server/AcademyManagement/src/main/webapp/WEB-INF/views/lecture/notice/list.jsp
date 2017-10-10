@@ -3,10 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page session="true"%>
 
-<%@ include file="../layout/header.jsp" %>
+<%@ include file="../../layout/header.jsp" %>
 
 
-<title>학생 관리</title>
+<title>알림장</title>
 
 <div class="container text-center">
 		<div class="row content">
@@ -14,13 +14,14 @@
 			<div class="col-xs-2">
 				<div class="panel panel-default">
 				  <!-- Default panel contents -->
-				  <div class="panel-heading"><b>수업</b></div>
+				  <div class="panel-heading"><b>${noticeVO.lname}</b></div>
 				
 				  <!-- List group -->
 				  <div class="list-group">
+				  	<a href="/lecture/list" class="list-group-item">수업 목록</a>
+				  	<a href="/lecture/read?lno=${noticeVO.lno }" class="list-group-item">수업 상세</a>
 				  	<a href="" class="list-group-item active">알림장</a>
-				    <a href="" class="list-group-item">출석</a>
-				    <a href="" class="list-group-item">성적</a>
+				  	<a href="/lecture/students/list?lno=${noticeVO.lno }&lname=${noticeVO.lname }" class="list-group-item">수강생</a>
 				  </div>
 				</div>
 			</div>
@@ -37,23 +38,17 @@
 					  <table class="table table-hover col-xs-12">
 					    <thead>
 							<tr>
-								<th>강의명</th>
-								<th>강사</th>
-								<th>요일</th>
-							 	<th>시간</th>
-							 	<th>정원</th>
-							 	<th>강의실</th>
+								<th>제목</th>
+								<th>작성자</th>
+							 	<th>조회수</th>
 							</tr>
 						 </thead>
 						 <tbody>
-						 	<c:forEach var="lectureVO" items="${list}" varStatus="status">
-								<tr class='clickable-row' data-href='/lecture/read${pageMaker.makeQuery(pageMaker.cri.page)}&lno=${lectureVO.lno}' style="cursor:pointer">
-									<td>${lectureVO.lname}</td>
-									<td>${lectureVO.teacher}</td>
-									<td>${lectureVO.day}</td>
-									<td>${lectureVO.startTime} ~ ${lectureVO.endTime}</td>
-									<td>${lectureVO.personnel}</td>
-									<td>${lectureVO.room}</td>
+						 	<c:forEach var="noticeVO" items="${list}" varStatus="status">
+								<tr class='clickable-row' data-href='/lecture/notice/read${pageMaker.makeQuery(pageMaker.cri.page)}&nno=${noticeVO.nno}' style="cursor:pointer">
+									<td>${noticeVO.title}</td>
+									<td>${noticeVO.writer}</td>
+									<td>${noticeVO.viewCnt}</td>
 								<tr>
 							</c:forEach>
 						 </tbody>
@@ -97,6 +92,7 @@
 			</div>
 		</div>
 </div>
+</div>
 	
 	<script>
 		var msg = "${msg}";
@@ -108,14 +104,14 @@
 		$(document).ready(function() {
 
 			$(".clickable-row").click(function() {
-		        window.location = $(this).data("href");
+		        self.location = $(this).data("href");
 		    });
 			
 			$("#registBtn").click(function() {
-		        self.location = "/lecture/regist";
+		        self.location = "/lecture/notice/regist?lno=${noticeVO.lno}&lname=${noticeVO.lname}";
 		    });
 
 		});
 	</script>
 
-<%@ include file="../layout/footer.jsp" %>
+<%@ include file="../../layout/footer.jsp" %>

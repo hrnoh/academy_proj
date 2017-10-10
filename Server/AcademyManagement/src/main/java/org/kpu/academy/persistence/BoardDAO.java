@@ -10,6 +10,8 @@ public interface BoardDAO {
 	
 	public BoardVO read(Integer bno) throws Exception;
 	
+	public void updateViewCnt(Integer bno) throws Exception;
+	
 	public void update(BoardVO vo) throws Exception;
 	
 	public void delete(Integer bno) throws Exception;

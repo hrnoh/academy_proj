@@ -6,7 +6,7 @@
 <%@ include file="../layout/header.jsp" %>
 
 
-<title>학생 관리</title>
+<title>수업 관리</title>
 
 <div class="container text-center">
 		<div class="row content">
@@ -46,14 +46,14 @@
 						 </thead>
 						 <tbody>
 						 	<c:forEach var="lectureVO" items="${list}" varStatus="status">
-								<tr class='clickable-row' data-href='/lecture/read${pageMaker.makeQuery(pageMaker.cri.page)}&lno=${lectureVO.lno}' style="cursor:pointer">
+								<tr class='clickable-row' data-href='/lecture/read?lno=${lectureVO.lno }&page=${pageMaker.cri.page}&perPageNum=${pageMaker.cri.perPageNum}' style="cursor:pointer">
 									<td>${lectureVO.lname}</td>
 									<td>${lectureVO.teacher}</td>
 									<td>${lectureVO.day}</td>
 									<td>${lectureVO.startTime} ~ ${lectureVO.endTime}</td>
 									<td>${lectureVO.personnel}</td>
 									<td>${lectureVO.room}</td>
-								</tr>
+								<tr>
 							</c:forEach>
 						 </tbody>
 					  </table>
@@ -95,6 +95,7 @@
 				  
 			</div>
 		</div>
+</div>
 </div>
 	
 	<script>

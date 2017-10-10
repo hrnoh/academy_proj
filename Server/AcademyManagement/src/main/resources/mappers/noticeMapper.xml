@@ -10,10 +10,16 @@
 	</insert>
 
 	<select id="read" resultType="NoticeVO">
-		select *
-		from notice
-		where nno = #{nno}
+		select nno, title, content, user.name as writer, notice.regDate, viewCnt, lname, notice.lno, notice.uno
+		from notice join user on notice.uno = user.uno
+        join lecture on notice.lno = lecture.lno
+        where notice.nno = #{nno}
 	</select>
+	
+	<update id="updateViewCnt">
+		update notice set viewCnt = viewCnt + 1
+		where notice.nno = #{nno}
+	</update>
 	
 	<update id="update">
 		update notice set title=#{title}, content=#{content}, modDate=now()
@@ -26,9 +32,30 @@
 	
 	<select id="listAll" resultType="NoticeVO">
 	<![CDATA[
-		select *
-		from notice
-		order by nno desc, regdate desc
+		select nno, title, content, user.name as writer, notice.regDate, viewCnt, lname, notice.lno
+		from notice join user on notice.uno = user.uno
+        join lecture on notice.lno = lecture.lno
+        where notice.lno = #{lno}
+		order by nno desc, notice.regDate desc
+	]]>
+	</select>
+	
+	<select id="listPage" resultType="NoticeVO">
+	<![CDATA[
+		select nno, title, content, user.name as writer, notice.regDate, viewCnt, lname, notice.lno
+		from notice join user on notice.uno = user.uno
+        join lecture on notice.lno = lecture.lno
+        where notice.lno = #{lno}
+		order by nno desc, notice.regDate desc
+		limit #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	
+	<select id="listCount" resultType="int">
+	<![CDATA[
+		SELECT COUNT(nno)
+		FROM notice
+		WHERE lno = #{lno}
 	]]>
 	</select>
 </mapper>

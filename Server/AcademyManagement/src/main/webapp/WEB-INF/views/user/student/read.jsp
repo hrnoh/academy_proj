@@ -130,10 +130,10 @@
 					    <c:if test="${userVO.role eq '학생'}">
 					    <label for="status" class="col-xs-2 control-label">상태 : </label>
 					    <div class="col-xs-4">
-					    	<select class="form-control">
-							  <option <c:out value="${userVO.status eq '수강'? 'selected':'' }"/>>수강</option>
-							  <option <c:out value="${userVO.status eq '휴원'? 'selected':'' }"/>>휴원</option>
-							  <option <c:out value="${userVO.status eq '퇴원'? 'selected':'' }"/>>퇴원</option>
+					    	<select class="form-control" name="status">
+							  <option value="수강" <c:out value="${userVO.status eq '수강'? 'selected':'' }"/>>수강</option>
+							  <option value="휴원" <c:out value="${userVO.status eq '휴원'? 'selected':'' }"/>>휴원</option>
+							  <option value="퇴원" <c:out value="${userVO.status eq '퇴원'? 'selected':'' }"/>>퇴원</option>
 							</select>
 					    </div>
 					    </c:if>

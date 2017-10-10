@@ -65,25 +65,12 @@
 						<li><a href="#">전체 일정 조회</a></li>
 						<li><a href="#">일정 등록/수정</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">수업
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/lecture/list">수업
 						<span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">
 						<li><a href="/lecture/list">수업 조회</a></li>
 						<li><a href="/lecture/regist">수업 등록</a></li>
-						<li><a href="#">수업 수정/삭제</a></li>
-						<li><a href="#">출석부 확인</a></li>
-						<li><a href="#">출석부 등록/수정</a></li>
-						<li><a href="#">성적 확인</a></li>
-						<li><a href="#">성적 등록/수정</a></li>
-					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">알림장
-						<span class="caret"></span>
-				</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">알림장 조회</a></li>
-						<li><a href="#">알림장 등록</a></li>
-						<li><a href="#">알림장 수정/삭제</a></li>
 					</ul></li>
 				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/consulting">상담
 						<span class="caret"></span>
@@ -93,7 +80,7 @@
 						<li><a href="/consulting/student/consulting_apply">상담 신청</a></li>
 						<li><a href="/consulting/manager/consulting_regist">상담 등록</a></li>
 					</ul></li>
-				<li><a class="dropdown-toggle" data-toggle="dropdown" href="#">계정
+				<li><a class="dropdown-toggle" data-toggle="dropdown" href="/user/student">계정
 						관리 <span class="caret"></span>
 				</a>
 					<ul class="dropdown-menu">

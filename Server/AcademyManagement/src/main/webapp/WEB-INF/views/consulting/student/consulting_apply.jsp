@@ -21,7 +21,7 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="/consulting/student/view_application_list" class="list-group-item">신청 내역 조회</a> 
+					<a href="/consulting/student/list" class="list-group-item">신청 내역 조회</a> 
 					<a href="" class="list-group-item active">상담 신청</a>
 				</div>
 			</div>

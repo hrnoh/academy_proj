@@ -19,37 +19,43 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/consulting")
 public class ConsultingController {
 	
-	@RequestMapping(value = "/manager/view_application_list", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String Consulting(Model model) throws Exception {
+		
+		return "redirect:/consulting/manager/view_application_list";
+	}
+	
+	@RequestMapping(value = "/manager/list", method = RequestMethod.GET)
 	public String MViewApplicationList(Model model) throws Exception {
 		
 		return "consulting/manager/view_application_list";
 	}
 	
-	@RequestMapping(value = "/teacher/view_application_list", method = RequestMethod.GET)
+	@RequestMapping(value = "/teacher/list", method = RequestMethod.GET)
 	public String TViewApplicationList(Model model) throws Exception {
 		
 		return "consulting/teacher/view_application_list";
 	}
 	
-	@RequestMapping(value = "/student/view_application_list", method = RequestMethod.GET)
+	@RequestMapping(value = "/student/list", method = RequestMethod.GET)
 	public String SViewApplicationList(Model model) throws Exception {
 		
 		return "consulting/student/view_application_list";
 	}
 	
-	@RequestMapping(value = "/manager/application_read", method = RequestMethod.GET)
+	@RequestMapping(value = "/manager/read", method = RequestMethod.GET)
 	public String ApplicationRead(Model model) throws Exception {
 		
 		return "consulting/manager/application_read";
 	}
 	
-	@RequestMapping(value = "/manager/consulting_regist", method = RequestMethod.GET)
+	@RequestMapping(value = "/manager/regist", method = RequestMethod.GET)
 	public String ConsultingRegist(Model model) throws Exception {
 		
 		return "consulting/manager/consulting_regist";
 	}
 	
-	@RequestMapping(value = "/student/consulting_apply", method = RequestMethod.GET)
+	@RequestMapping(value = "/student/apply", method = RequestMethod.GET)
 	public String ConsultingApply(Model model) throws Exception {
 		
 		return "consulting/student/consulting_apply";

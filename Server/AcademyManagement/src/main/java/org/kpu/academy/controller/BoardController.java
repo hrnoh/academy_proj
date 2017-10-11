@@ -28,7 +28,7 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	@GetMapping("/")
+	@GetMapping("")
 	public String boardHome(Model model) {
 		return "redirect:/board/list";
 	}

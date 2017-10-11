@@ -22,7 +22,7 @@
 				<!-- List group -->
 				<div class="list-group">
 					<a href="" class="list-group-item active">신청 내역 조회</a> 
-					<a href="/consulting/manager/consulting_regist" class="list-group-item">상담 등록</a>
+					<a href="/consulting/manager/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 							<div class="col-xs-push-5 col-xs-4 text-right">
 								<input id="" class="btn btn-default" type="submit" value="등록">
 								<input id="" class="btn btn-default" type="button"
-									onclick="location='/consulting/manager/consulting_regist'"
+									onclick="location='/consulting/manager/regist'"
 									value="수정"> <input id="" class="btn btn-default"
 									type="submit" value="거절"> <input id=""
 									class="btn btn-default" type="button" value="목록">

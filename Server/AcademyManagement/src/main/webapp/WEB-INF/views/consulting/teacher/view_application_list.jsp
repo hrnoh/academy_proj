@@ -21,7 +21,7 @@
 				<!-- List group -->
 				<div class="list-group">
 					<a href="" class="list-group-item active">신청 내역 조회</a>
-					<a href="/consulting/teacher/consulting_regist" class="list-group-item">상담 등록</a>
+					<a href="/consulting/teacher/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
 		</div>
@@ -122,7 +122,7 @@
 							</c:forEach> --%>
 
 							<tr class='clickable-row'
-								data-href='/consulting/teacher/application_read'
+								data-href='/consulting/teacher/read'
 								style="cursor: pointer">
 								<td width="10%">완료</td>
 								<td width="10%">학생</td>

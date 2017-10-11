@@ -22,7 +22,7 @@
 				<!-- List group -->
 				<div class="list-group">
 					<a href="" class="list-group-item active">신청 내역 조회</a> 
-					<a href="/consulting/teacher/consulting_regist" class="list-group-item">상담 등록</a>
+					<a href="/consulting/teacher/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
 		</div>

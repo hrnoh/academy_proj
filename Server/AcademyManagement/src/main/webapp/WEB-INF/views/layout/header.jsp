@@ -39,7 +39,52 @@
 	</div>
 </div>
 
-<!-- 네비게이션 바 -->
+	<!-- Login Modal -->
+	<div id="loginModal" class="modal fade" role="dialog" style="top:100;">
+		<div class="modal-dialog" style="width: 350px">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Login</h4>
+				</div>
+				<div class="modal-body"  style="padding-bottom: 0px;">
+					<form action="" method="post" class="form-horizontal">
+						<div class="form-group">
+							<label class="control-label col-xs-3" for="id">ID :</label>
+							<div class="col-xs-8">
+								<input class="form-control" name="id" type="text" placeholder="Enter ID">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="control-label col-xs-3" for="pw">PW :</label>
+							<div class="col-xs-8">
+								<input class="form-control" name="pw" type="password" placeholder="Enter password">
+							</div>
+						</div>
+<!--     					<span class="glyphicon glyphicon-question-sign"></span></a> -->					
+<!-- 						<span class="glyphicon glyphicon-question-sign"></span></a> -->
+ 
+ 						<div class="form-group">
+ 							<div class="col-xs-offset-8 col-xs-3">
+ 								<input class="form-control" type="submit" value="Login" class="btn btn-default">
+ 							</div>
+ 						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+	<!-- 네비게이션 바 -->
 <div class="container" style="margin-bottom:10px;">
 
 	<div class="row">

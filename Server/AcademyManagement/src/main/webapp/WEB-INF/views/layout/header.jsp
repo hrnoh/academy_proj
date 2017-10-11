@@ -29,8 +29,9 @@
 		<div class="col-xs-4"></div>
 		<div class="col-xs-4 text-right">
 			<div>
-				<a href="#"><span class="glyphicon glyphicon-log-in"></span>
-					Login</a> &nbsp;&nbsp; <a href="#"><span
+				<a data-toggle="modal" data-target="#loginModal" style="cursor: pointer"><span class="glyphicon glyphicon-log-in"></span>
+					Login</a> &nbsp;&nbsp; 
+				<a href=""><span
 					class="glyphicon glyphicon-envelope"></span> Contact Us</a>
 				&nbsp;&nbsp;
 			</div>

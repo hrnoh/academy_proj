@@ -3,7 +3,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!-- 헤더 -->
-<%@include file="../../layout/header.jsp"%>
+<%@include file="../layout/header.jsp"%>
 <title>상담 신청 내역 조회</title>
 
 <!-- 센터 -->
@@ -21,7 +21,7 @@
 				<!-- List group -->
 				<div class="list-group">
 					<a href="" class="list-group-item active">신청 내역 조회</a>
-					<a href="/consulting/teacher/regist" class="list-group-item">상담 등록</a>
+					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
 		</div>
@@ -122,7 +122,7 @@
 							</c:forEach> --%>
 
 							<tr class='clickable-row'
-								data-href='/consulting/teacher/read'
+								data-href='/consulting/read'
 								style="cursor: pointer">
 								<td width="10%">완료</td>
 								<td width="10%">학생</td>
@@ -156,4 +156,4 @@
 </script>
 
 <!-- footer -->
-<%@include file="../../layout/footer.jsp"%>
+<%@include file="../layout/footer.jsp"%>

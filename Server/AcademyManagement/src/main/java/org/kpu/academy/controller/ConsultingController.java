@@ -22,42 +22,30 @@ public class ConsultingController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String Consulting(Model model) throws Exception {
 		
-		return "redirect:/consulting/manager/list";
+		return "redirect:/consulting/list";
 	}
 	
-	@RequestMapping(value = "/manager/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String MViewApplicationList(Model model) throws Exception {
 		
-		return "consulting/manager/view_application_list";
+		return "consulting/list";
 	}
 	
-	@RequestMapping(value = "/teacher/list", method = RequestMethod.GET)
-	public String TViewApplicationList(Model model) throws Exception {
-		
-		return "consulting/teacher/view_application_list";
-	}
-	
-	@RequestMapping(value = "/student/list", method = RequestMethod.GET)
-	public String SViewApplicationList(Model model) throws Exception {
-		
-		return "consulting/student/view_application_list";
-	}
-	
-	@RequestMapping(value = "/manager/read", method = RequestMethod.GET)
+	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public String ApplicationRead(Model model) throws Exception {
 		
-		return "consulting/manager/application_read";
+		return "consulting/read";
 	}
 	
-	@RequestMapping(value = "/manager/regist", method = RequestMethod.GET)
+	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public String ConsultingRegist(Model model) throws Exception {
 		
-		return "consulting/manager/consulting_regist";
+		return "consulting/regist";
 	}
 	
-	@RequestMapping(value = "/student/apply", method = RequestMethod.GET)
+	@RequestMapping(value = "/apply", method = RequestMethod.GET)
 	public String ConsultingApply(Model model) throws Exception {
 		
-		return "consulting/student/consulting_apply";
+		return "consulting/apply";
 	}
 }

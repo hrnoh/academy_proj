@@ -22,7 +22,7 @@ public class ConsultingController {
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String Consulting(Model model) throws Exception {
 		
-		return "redirect:/consulting/manager/view_application_list";
+		return "redirect:/consulting/manager/list";
 	}
 	
 	@RequestMapping(value = "/manager/list", method = RequestMethod.GET)

@@ -40,7 +40,11 @@
 
 					<!-- 필터 -->
 					<div class="row col-xs-12">
-						<form>
+						<form id="myForm" action="/consulting/list" method="get">
+						
+							<input type="hidden" name="searchType" value=""/>
+							<input type="hidden" name="keyword" value=""/>
+						
 							<table>
 								<tr>
 									<td>
@@ -49,7 +53,7 @@
 								</tr>
 								<tr>
 									<td>상태</td>
-									<td colspan="2"><select name="state">
+									<td colspan="2"><select name="status" class="form-control">
 											<option value="" selected>&nbsp;</option>
 											<option value="신청">신청</option>
 											<option value="등록">등록</option>
@@ -59,7 +63,7 @@
 									<td width="5%">&nbsp;</td>
 
 									<td>구분</td>
-									<td><select name="role">
+									<td><select name="role" class="form-control">
 											<option value="" selected>&nbsp;</option>
 											<option value="학생">학생</option>
 											<option value="학부모">학부모</option>
@@ -67,24 +71,24 @@
 								</tr>
 								<tr>
 									<td>신청자</td>
-									<td><input type="text" name="applicant"></td>
-									<td><input type="button" value="검색"></td>
+									<td><input type="text" name="client" class="form-control"></td>
+									<td><input id="searchByClientBtn" type="button" value="검색" class="btn btn-default"></td>
 
 									<td>&nbsp;</td>
 
 									<td>상담자</td>
-									<td><input type="text" name="counseler"></td>
-									<td><input type="button" value="검색"></td>
+									<td><input type="text" name="counselor" class="form-control"></td>
+									<td><input id="searchByCounselorBtn" type="button" value="검색" class="btn btn-default"></td>
 								</tr>
 								<tr>
 									<td>상담 내용</td>
-									<td><input type="text" name="content"></td>
-									<td><input type="button" value="검색"></td>
+									<td><input type="text" name="content" class="form-control"></td>
+									<td><input id="searchByContentBtn" type="button" value="검색" class="btn btn-default"></td>
 
 									<td>&nbsp;</td>
 
 									<td>날짜</td>
-									<td><input type="date" name="date" value=" "></td>
+									<td><input type="date" name="consultingDate" value="" class="form-control"></td>
 								</tr>
 							</table>
 						</form>
@@ -110,27 +114,18 @@
 					<div
 						style="width: 100%; overflow: auto; height: 300px; margin-top: 0px;">
 						<table class="table table-hover" style="width: 100%;">
-							<%-- 	<c:forEach items="${list}" var="userVO">
-								<tr>
-									<td width="10%">완료</td>
-									<td width="10%">학생</td>
-									<td width="15%">홍길동</td>
-									<td width="15%">김사또</td>
-									<td width="30%">대입 대비 플랜</td>
-									<td width="20%">2017.10.10 17:00</td>
-								</tr>
-							</c:forEach> --%>
-
+						<c:forEach items="${list}" var="consultingVO">
 							<tr class='clickable-row'
-								data-href='/consulting/read'
+								data-href='/consulting/read${pageMaker.makeSearch(pageMaker.cri.page)}?cno=${consultingVO.cno}'
 								style="cursor: pointer">
-								<td width="10%">완료</td>
-								<td width="10%">학생</td>
-								<td width="15%">홍길동</td>
-								<td width="15%">김사또</td>
-								<td width="30%">대입 대비 플랜</td>
-								<td width="20%">2017.10.10 17:00</td>
+								<td width="10%">${consultingVO.status }</td>
+								<td width="10%">${consultingVO.type }</td>
+								<td width="15%">${consultingVO.client }</td>
+								<td width="15%">${consultingVO.counselor }</td>
+								<td width="30%">${consultingVO.content }</td>
+								<td width="20%">${consultingVO.consultingDate}</td>
 							</tr>
+						</c:forEach>
 						</table>
 					</div>
 					<!-- 테이블 끝 -->
@@ -146,12 +141,45 @@
 
 
 <script type="text/javascript">
+	var msg = "${msg}";
+	
+	if(msg == "SUCCESS") {
+		alert("처리가 완료되었습니다.");
+	}
+
 	$(document).ready(function() {
+		var formObj = $("#myForm");
 
 		$(".clickable-row").click(function() {
 			window.location = $(this).data("href");
 		});
 
+		$("#searchByClientBtn").on("click", function(e) {
+			var keyword = $("input[name='client']").val();
+			
+			$("input[name='searchType']").val("client");
+			$("input[name='keyword']").val(keyword);
+			
+			formObj.submit();
+		});
+		
+		$("#searchByCounselorBtn").on("click", function(e) {
+			var keyword = $("input[name='counselor']").val();
+			
+			$("input[name='searchType']").val("counselor");
+			$("input[name='keyword']").val(keyword);
+			
+			formObj.submit();
+		});
+		
+		$("#searchByContentBtn").on("click", function(e) {
+			var keyword = $("input[name='content']").val();
+			
+			$("input[name='searchType']").val("content");
+			$("input[name='keyword']").val(keyword);
+			
+			formObj.submit();
+		});
 	});
 </script>
 

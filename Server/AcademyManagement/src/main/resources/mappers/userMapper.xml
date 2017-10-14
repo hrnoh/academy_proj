@@ -61,4 +61,20 @@
 	]]>
 	</select>
 	
+	<select id="studentsByName" resultType="UserVO">
+	<![CDATA[
+		select uno, grade, name, sex, mPhone
+		from user
+		where name like concat('%',#{name},'%') and role='학생'
+	]]>
+	</select>
+	
+	<select id="teachersByName" resultType="UserVO">
+	<![CDATA[
+		select uno, name, sex, mPhone
+		from user
+		where name like concat('%',#{name},'%') and role='강사'
+	]]>
+	</select>
+	
 </mapper>

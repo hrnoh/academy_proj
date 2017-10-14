@@ -39,23 +39,24 @@
 
 				<div class="panel-body">
 					<!-- 입력 양식 -->
-					<form class="form-horizontal" id="myForm" action="" method="post">
-						<%-- 
-							<!-- hidden -->
-							<input type="hidden" name="lno" value="${lectureVO.lno}">
-							<input type='hidden' name='page' value="${cri.page}"> <input
-								type='hidden' name='perPageNum' value="${cri.perPageNum}">
-						--%>
+					<form class="form-horizontal" id="myForm" action="/consulting/modify" method="post">
+						
+						<input type='hidden' name='cno' value="${consultingVO.cno}"> 
+						<input type='hidden' name='page' value="${cri.page}"> 
+						<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+						<input type='hidden' name='searchType' value="${cri.searchType}">
+						<input type='hidden' name='keyword' value="${cri.keyword}">
+						
 						<!-- 행1 -->
 						<div class="form-group">
 							<label for="" class="col-xs-3 control-label">신청자:</label>
 							<div class="col-xs-3">
-								<p class="form-control-static">@@@</p>
+								<p class="form-control-static">${consultingVO.client }</p>
 							</div>
 
 							<label for="" class="col-xs-2 control-label">상담자:</label>
 							<div class="col-xs-3">
-								<p class="form-control-static">@@@</p>
+								<p class="form-control-static">${consultingVO.counselor }</p>
 							</div>
 						</div>
 
@@ -63,32 +64,29 @@
 						<div class="form-group">
 							<label for="" class="col-xs-3 control-label">상담 내용:</label>
 							<div class="col-xs-8">
-								<p class="form-control-static">@@@@@@@@@@@@@@@@@@@@@</p>
+								<p class="form-control-static">${consultingVO.content}</p>
 							</div>
 						</div>
 
 						<!-- 행3 -->
 						<div class="form-group">
 							<label for="" class="col-xs-3 control-label">상태: </label>
-							<div class="col-xs-2">
-								<p class="form-control-static">신청</p>
+							<div class="col-xs-3">
+								<p class="form-control-static">${consultingVO.status }</p>
 							</div>
 
 							<label for="" class="col-xs-2 control-label">일시: </label>
 							<div class="col-xs-4">
-								<p class="form-control-static">2000-00-00 00:00</p>
+								<p class="form-control-static">${consultingVO.consultingDate }</p>
 							</div>
 						</div>
 
 						<!-- 등록 버튼 -->
 						<div class="form-group">
-							<div class="col-xs-push-5 col-xs-4 text-right">
-								<input id="" class="btn btn-default" type="submit" value="등록">
-								<input id="" class="btn btn-default" type="button"
-									onclick="location='/consulting/regist'"
-									value="수정"> <input id="" class="btn btn-default"
-									type="submit" value="거절"> <input id=""
-									class="btn btn-default" type="button" value="목록">
+							<div class="col-xs-11 text-right">
+								<input id="modifyBtn" class="btn btn-default" type="button" value="수정"> 
+								<input id="removeBtn" class="btn btn-default" type="button" value="거절"> 
+								<input id="listBtn" class="btn btn-default" type="button" value="목록">
 							</div>
 						</div>
 
@@ -102,6 +100,32 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	$(document).ready(function() {
+		
+		var formObj = $("#myForm");
+		
+		$("#listBtn").on("click", function(e) {
+			formObj.attr("method", "get");
+			formObj.attr("action", "/consulting/list");
+			formObj.submit();
+		});
+		
+		$("#modifyBtn").on("click", function(e) {
+			formObj.attr("method", "get");
+			formObj.attr("action", "/consulting/modify");
+			formObj.submit();
+		});
+		
+		$("#removeBtn").on("click", function(e) {
+			formObj.attr("method", "post");
+			formObj.attr("action", "/consulting/remove");
+			formObj.submit();
+		});
+		
+	});
+</script>
 
 
 <%@ include file="../layout/footer.jsp"%>

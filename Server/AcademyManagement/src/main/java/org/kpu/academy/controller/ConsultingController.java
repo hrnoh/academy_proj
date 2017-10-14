@@ -1,51 +1,118 @@
 package org.kpu.academy.controller;
 
+import java.util.List;
 
 import javax.inject.Inject;
 
+import org.kpu.academy.domain.ConsultingSearchCriteria;
+import org.kpu.academy.domain.ConsultingVO;
 import org.kpu.academy.domain.Criteria;
-import org.kpu.academy.service.BoardService;
+import org.kpu.academy.domain.PageMaker;
+import org.kpu.academy.domain.SearchCriteria;
+import org.kpu.academy.service.ConsultingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 @RequestMapping(value = "/consulting")
 public class ConsultingController {
+
+	@Inject
+	private ConsultingService consultingService;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String Consulting(Model model) throws Exception {
+	private static final Logger logger = LoggerFactory.getLogger(ConsultingController.class);
+	
+	@GetMapping("/list")
+	public String listPage(@ModelAttribute("cri") ConsultingSearchCriteria cri,
+			Model model) throws Exception {
+		logger.info(cri.toString());
 		
-		return "redirect:/consulting/list";
-	}
-	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String MViewApplicationList(Model model) throws Exception {
+		List<ConsultingVO> list = consultingService.list(cri);
+		for(ConsultingVO vo : list)
+			logger.info(vo.toString());
+		
+		model.addAttribute("list", list);
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(consultingService.listCount(cri));
 		
 		return "consulting/list";
 	}
 	
-	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public String ApplicationRead(Model model) throws Exception {
+	@GetMapping("/read")
+	public String read(@RequestParam("cno") int cno,
+			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		model.addAttribute(consultingService.read(cno));
 		
 		return "consulting/read";
 	}
 	
-	@RequestMapping(value = "/regist", method = RequestMethod.GET)
-	public String ConsultingRegist(Model model) throws Exception {
-		
+	@GetMapping("/regist")
+	public String regist() throws Exception {
 		return "consulting/regist";
 	}
 	
-	@RequestMapping(value = "/apply", method = RequestMethod.GET)
-	public String ConsultingApply(Model model) throws Exception {
+	@PostMapping("/regist")
+	public String registPOST(ConsultingVO consultingVO, RedirectAttributes rttr) throws Exception {
+		logger.info(consultingVO.toString());
+		consultingService.regist(consultingVO);
 		
-		return "consulting/apply";
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/consulting/list";
+	}
+	
+	@GetMapping("/modify")
+	public String moidfy(@RequestParam("cno") int cno,
+			@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		
+		model.addAttribute(consultingService.read(cno));
+		
+		return "consulting/modify";
+	}
+	
+	@PostMapping("/modify")
+	public String modify(ConsultingVO consultingVO, 
+			SearchCriteria cri,
+			RedirectAttributes rttr) throws Exception {
+		logger.info(consultingVO.toString());
+		consultingService.modify(consultingVO);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/consulting/list";
+	}
+	
+	@PostMapping("/remove")
+	public String delete(@RequestParam("cno") int cno,
+			SearchCriteria cri,
+			RedirectAttributes rttr) throws Exception {
+		logger.info("delete - " + cno);
+		consultingService.remove(cno);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		rttr.addFlashAttribute("msg", "SUCCESS");
+		
+		return "redirect:/consulting/list";
 	}
 }

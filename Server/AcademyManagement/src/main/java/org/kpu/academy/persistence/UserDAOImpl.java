@@ -55,4 +55,14 @@ public class UserDAOImpl implements UserDAO {
 	public List<UserVO> parentsList(Integer uno) throws Exception {
 		return session.selectList(namespace + ".parentsList", uno);
 	}
+	
+	@Override
+	public List<UserVO> studentsByName(String name) throws Exception {
+		return session.selectList(namespace + ".studentsByName", name);
+	}
+	
+	@Override
+	public List<UserVO> teachersByName(String name) throws Exception {
+		return session.selectList(namespace + ".teachersByName", name);
+	}
 }

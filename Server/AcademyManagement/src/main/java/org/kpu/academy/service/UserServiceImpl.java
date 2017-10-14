@@ -48,4 +48,14 @@ public class UserServiceImpl implements UserService {
 	public List<UserVO> parentsList(Integer uno) throws Exception {
 		return userDAO.parentsList(uno);
 	}
+	
+	@Override
+	public List<UserVO> studentsByName(String name) throws Exception {
+		return userDAO.studentsByName(name);
+	}
+	
+	@Override
+	public List<UserVO> teachersByName(String name) throws Exception {
+		return userDAO.teachersByName(name);
+	}
 }

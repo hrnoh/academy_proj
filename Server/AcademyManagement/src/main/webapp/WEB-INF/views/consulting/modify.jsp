@@ -23,8 +23,8 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="/consulting/list" class="list-group-item">신청 내역 조회</a> 
-					<a href="" class="list-group-item active">상담 등록</a>
+					<a href="/consulting/list" class="list-group-item active">신청 내역 조회</a> 
+					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
 		</div>
@@ -41,27 +41,35 @@
 
 				<div class="panel-body">
 					<!-- 입력 양식 -->
-					<form class="form-horizontal" id="consultingForm" action="/consulting/regist" method="post">
+					<form class="form-horizontal" id="consultingForm" action="/consulting/modify" method="post">
+						
+						<input type="hidden" name="cno" value="${consultingVO.cno }">
+						<input type='hidden' name='page' value="${cri.page}"> 
+						<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
+						<input type='hidden' name='searchType' value ="${cri.searchType }">
+	    				<input type='hidden' name='keyword' value ="${cri.keyword }">
+						
 						<!-- 행1 -->
 						<div class="form-group">
 							
 							<label for="client" class="control-label col-xs-2">신청자:</label>
 							<div class="col-xs-10 form-inline">
-								<input type="hidden" id="clientNum" name="clientNum" value="">
-								<input type="text" class="form-control" id="client" value="" disabled>
+								<input type="hidden" id="clientNum" name="clientNum" value="${consultingVO.clientNum }">
+								<input type="text" class="form-control" id="client" value="${consultingVO.client }" disabled>
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static">검색</button>
 								<label for="" class="control-label">상담자:</label>
-								<input type="hidden" id="counselorNum" name="counselorNum" value="">
-								<input type="text" class="form-control" id="counselor" value="" disabled>
+								<input type="hidden" id="counselorNum" name="counselorNum" value="${consultingVO.counselorNum }">
+								<input type="text" class="form-control" id="counselor" value="${consultingVO.counselor }" disabled>
 								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static">검색</button>
 							</div>
+
 						</div>
 
 						<!-- 행2 -->
 						<div class="form-group">
 							<label for="" class="col-xs-2 control-label">상담 내용:</label>
 							<div class="col-xs-9">
-								<input type="text" class="form-control" id="" name="content">
+								<input type="text" class="form-control" id="" name="content" value="${consultingVO.content }">
 							</div>
 						</div>
 
@@ -70,16 +78,16 @@
 							<label for="" class="col-xs-2 control-label">상태: </label>
 							<div class="col-xs-4">
 								<select class="form-control" name="status">
-									<option value="신청" selected>신청</option>
-									<option value="등록">등록</option>
-									<option value="완료">완료</option>
+									<option value="신청" <c:out value="${consultingVO.status=='신청'? 'selected':'' }"/>>신청</option>
+									<option value="등록" <c:out value="${consultingVO.status=='등록'? 'selected':'' }"/>>등록</option>
+									<option value="완료" <c:out value="${consultingVO.status=='완료'? 'selected':'' }"/>>완료</option>
 								</select>
 							</div>
 
 
 							<label for="" class="col-xs-2 control-label">일시: </label>
 							<div class="col-xs-3">
-								<input type="date" class="form-control" id="" name="consultingDate" value="">
+								<input type="date" class="form-control" id="" name="consultingDate" value="${consultingVO.consultingDate }">
 							</div>
 						</div>
 
@@ -87,8 +95,8 @@
 						<!-- 등록 버튼 -->
 						<div class="form-group">
 							<div class="col-xs-11 text-right">
-								<input id="" class="btn btn-primary" type="submit" value="등록">
-								<input id="listBtn" class="btn btn-default" type="button" value="목록">
+								<input class="btn btn-default" type="submit" value="수정">
+								<input id="cancelBtn" class="btn btn-default" type="button" value="취소">
 							</div>
 						</div>
 
@@ -305,8 +313,12 @@ $(document).on("click", ".teacherSelBtn", function(event) {
 	$("button[data-dismiss='modal']").click();
 });
 
-$("#listBtn").on("click", function(e) {
-	location.href="/consulting/list";
+$("#cancelBtn").on("click", function(e) {
+	var formObj = $("#consultingForm");
+	
+	formObj.attr("method", "get");
+	formObj.attr("action", "/consulting/read");
+	formObj.submit();
 });
 </script>
 

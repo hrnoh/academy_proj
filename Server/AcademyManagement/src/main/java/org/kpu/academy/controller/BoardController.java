@@ -28,7 +28,7 @@ public class BoardController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-	@GetMapping("")
+	@GetMapping("/")
 	public String boardHome(Model model) {
 		return "redirect:/board/list";
 	}
@@ -86,7 +86,7 @@ public class BoardController {
 		return "HomeEditting/notice_correction";
 	}
 	
-	@PostMapping("modify")
+	@PostMapping("/modify")
 	public String modifyPagingPOST(BoardVO board,
 			@ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr) throws Exception {

@@ -31,7 +31,9 @@
 			<mapping path="/user/teacher*"/>
 			<mapping path="/user/manager*"/>
 			<mapping path="/lecture/*"/>
-			<mapping path="/board/*"/>
+			<mapping path="/board/regist"/>
+			<mapping path="/board/modify"/>
+			<mapping path="/board/remove"/>
 			<mapping path="/consulting/*"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>

@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userDAO.read(uno);
 	}
+	
+	@Override
+	public UserVO login(String id, String pwd) throws Exception {
+		return userDAO.readByIdAndPwd(id, pwd);
+	}
 
 	@Override
 	public void modify(UserVO vo) throws Exception {
@@ -47,5 +52,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<UserVO> parentsList(Integer uno) throws Exception {
 		return userDAO.parentsList(uno);
+	}
+	
+	@Override
+	public List<UserVO> studentsByName(String name) throws Exception {
+		return userDAO.studentsByName(name);
+	}
+	
+	@Override
+	public List<UserVO> teachersByName(String name) throws Exception {
+		return userDAO.teachersByName(name);
 	}
 }

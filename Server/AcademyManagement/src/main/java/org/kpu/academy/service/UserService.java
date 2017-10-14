@@ -9,6 +9,8 @@ public interface UserService {
 	
 	public UserVO read(Integer uno) throws Exception;
 	
+	public UserVO login(String id, String pwd) throws Exception;
+	
 	public void modify(UserVO vo) throws Exception;
 	
 	public void remove(Integer uno) throws Exception;
@@ -16,4 +18,8 @@ public interface UserService {
 	public List<UserVO> listAll(String role) throws Exception;
 	
 	public List<UserVO> parentsList(Integer uno) throws Exception;
+	
+	public List<UserVO> studentsByName(String name) throws Exception;
+	
+	public List<UserVO> teachersByName(String name) throws Exception;
 }

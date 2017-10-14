@@ -19,15 +19,15 @@
 				  <!-- List group -->
 				  <div class="list-group">
 				  <c:choose>
-				  	<c:when test="${userVO.role == '관리자' }">
+				  	<c:when test="${login.role == '관리자' }">
 				  		<a href="/user/student" class="list-group-item active">학생/학부모</a>
 					  	<a href="/user/teacher" class="list-group-item">강사</a>
 					  	<a href="/user/manager" class="list-group-item ">관리자</a>
 				  	</c:when>
 				  	
-			  		<c:when test="${userVO.role == '강사' }">
+			  		<c:when test="${login.role == '강사' }">
 				  		<a href="/user/student" class="list-group-item active">학생/학부모</a>
-					  	<a href="/user/teacher/detail?uno=${userVO.uno }" class="list-group-item ">강사</a>
+					  	<a href="/user/teacher/detail?uno=${login.uno }" class="list-group-item ">강사</a>
 				  	</c:when>
 				  	
 				  	<c:otherwise>
@@ -52,6 +52,7 @@
 				  	<form id="myForm" class="form-horizontal" action="/user/student/modify" method="post">
 				  	
 				  		<input type="hidden" name="uno" value="${uno }">
+				  		<input type="hidden" name="loginRole" value="${login.role}">
 				  	
 					  <div class="form-group">
 					    <label for="role" class="col-xs-2 control-label">구분 : </label>
@@ -179,8 +180,11 @@
 					<div class="row">
 						<div class="col-xs-push-8 col-xs-4 text-right">
 						 	<input class="btn btn-default" type="submit" value="수정">
+						 	
+						 	<c:if test="${login.role == '관리자' }">
 						 	<input id="removeBtn" class="btn btn-default" type="button" value="삭제">
 						 	<input id="listBtn" class="btn btn-default" type="button" value="목록">
+						 	</c:if>
 						 </div>
 					</div>
 					</form>
@@ -195,6 +199,11 @@
 	</div>
 	
 	<script>
+		var msg = "${msg}";
+		
+		if(msg == "SUCCESS")
+			alert("처리가 완료되었습니다.");
+	
 		$(document).ready(function(){
 	
 			var formObj = $("#myForm");

@@ -3,6 +3,12 @@ package org.kpu.academy.domain;
 public class SearchCriteria extends Criteria {
 	private String searchType;
 	private String keyword;
+	
+	public SearchCriteria() {
+		super();
+		searchType = "";
+		keyword = "";
+	}
 	public String getSearchType() {
 		return searchType;
 	}

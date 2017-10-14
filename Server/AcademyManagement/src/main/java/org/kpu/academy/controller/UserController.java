@@ -87,13 +87,20 @@ public class UserController {
 	 * return : msg
 	 * */
 	@PostMapping("/student/modify")
-	public String studentModifyPOST(UserVO userVO, RedirectAttributes rttr) throws Exception {
+	public String studentModifyPOST(UserVO userVO, String loginRole, RedirectAttributes rttr) throws Exception {
 		logger.info(userVO.toString());
+		String returnVal;
+		
+		if(loginRole != null && loginRole.equals("학생"))
+			returnVal = "redirect:/user/student/detail?uno=" + userVO.getUno();
+		else
+			returnVal = "redirect:/user/student";
+		
 		userService.modify(userVO);
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/user/student";
+		return returnVal;
 	}
 	
 	/*

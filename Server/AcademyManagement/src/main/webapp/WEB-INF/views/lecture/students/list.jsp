@@ -19,9 +19,9 @@
 				  <!-- List group -->
 				  <div class="list-group">
 				  	<a href="/lecture/list" class="list-group-item">수업 목록</a>
-				  	<a href="/lecture/read?lno=${lectureVO.lno }&lname=${lectureVO.lname}" class="list-group-item">수업 상세</a>
-				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item"> └ 알림장</a>
-				  	<a href="" class="list-group-item active"> └ 수강생</a>
+				  	<a href="/lecture/read?lno=${takeCourseVO.lno }" class="list-group-item">수업 상세</a>
+				  	<a href="/lecture/notice/list?lno=${takeCourseVO.lno }&lname=${takeCourseVO.lname }" class="list-group-item">알림장</a>
+				  	<a href="" class="list-group-item active">수강생</a>
 				  </div>
 				</div>
 			</div>
@@ -31,7 +31,7 @@
 				  <!-- 패널 시작 -->
 				  <div class="panel panel-default">
 					  <!-- Default panel contents -->
-					  <div class="panel-heading">수강생</div>
+					  <div class="panel-heading">알림장</div>
 					
 					  <div class="panel-body">
 					  <!-- Table -->

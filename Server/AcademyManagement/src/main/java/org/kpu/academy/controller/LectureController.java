@@ -118,8 +118,6 @@ public class LectureController {
 			RedirectAttributes rttr) throws Exception {
 		rttr.addAttribute("lno", lno);
 		
-		rttr.addAttribute(lectureService.read(lno));
-		
 		return "redirect:/lecture/students/list";
 	}
 	
@@ -203,7 +201,7 @@ public class LectureController {
 		logger.info(takeCourseVO.toString());
 		logger.info(cri.toString());
 		
-		model.addAttribute(lectureService.read(takeCourseVO.getLno()));
+		
 		model.addAttribute("takeCousreVO", takeCourseVO);
 		model.addAttribute("list", lectureService.sList(cri, takeCourseVO.getLno()));
 		PageMaker pageMaker = new PageMaker();

@@ -23,6 +23,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class NoticeController {
 	@Inject
 	private NoticeService noticeService;
+	@Inject
+	private LectureService lectureService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 	
@@ -106,12 +108,15 @@ public class NoticeController {
 	
 	
 	@GetMapping("/list")
-	public void list(@ModelAttribute("noticeVO") NoticeVO noticeVO,
+	public void list(
+			@RequestParam("lno") int lno,
+			@ModelAttribute("noticeVO") NoticeVO noticeVO,
 			Criteria cri, Model model) throws Exception {
 		logger.info("lno:"+noticeVO.toString());
 		logger.info(cri.toString());
 		
 		
+		model.addAttribute(lectureService.read(lno));
 		model.addAttribute("noticeVO", noticeVO);
 		model.addAttribute("list", noticeService.listPage(cri, noticeVO.getLno()));
 		PageMaker pageMaker = new PageMaker();

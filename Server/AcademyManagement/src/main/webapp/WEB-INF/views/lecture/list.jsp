@@ -18,8 +18,12 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
+				  	<!-- 수업 조회(학생, 강사, 관리자) -->
 				  	<a href="" class="list-group-item active">수업 조회</a>
-				    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+				  	<!-- 수업 등록(관리자) -->
+				  	<c:if test="${userVO.role == '관리자' }">
+					    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+					</c:if>
 				  </div>
 				</div>
 			</div>

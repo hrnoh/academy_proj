@@ -47,13 +47,32 @@
 							
 							<label for="client" class="control-label col-xs-2">신청자:</label>
 							<div class="col-xs-10 form-inline">
+								<!-- 상담자 -->
 								<input type="hidden" id="clientNum" name="clientNum" value="">
-								<input type="text" class="form-control" id="client" value="" disabled>
-								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static">검색</button>
+								<c:choose>
+									<c:when test="${login.role == '학생' }">
+										<input type="text" class="form-control" id="client" value="${login.name }" disabled>
+										<button type="button" class="btn btn-default active" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static" disabled>검색</button>
+									</c:when>
+									<c:otherwise>
+										<input type="text" class="form-control" id="client" value="" disabled>
+										<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static">검색</button>
+									</c:otherwise>
+								</c:choose>
+								
 								<label for="" class="control-label">상담자:</label>
 								<input type="hidden" id="counselorNum" name="counselorNum" value="">
-								<input type="text" class="form-control" id="counselor" value="" disabled>
-								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static">검색</button>
+								<c:choose>
+									<c:when test="${login.role == '강사' }">
+										<input type="text" class="form-control" id="counselor" value="${login.name }" disabled>
+										<button type="button" class="btn btn-default active" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static" disabled>검색</button>
+									</c:when>
+									<c:otherwise>
+										<input type="text" class="form-control" id="counselor" value="" disabled>
+										<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static">검색</button>
+									</c:otherwise>
+								</c:choose>
+								
 							</div>
 						</div>
 

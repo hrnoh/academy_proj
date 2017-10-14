@@ -109,7 +109,7 @@
 					<c:if test="${login != null}">
 					<!--  홈페이지 수정 (관리자) -->
 					<c:if test="${login.role == '관리자' }">
-						<li><a class="dropdown-toggle" href="/board">홈페이지 수정 <span
+						<li><a class="dropdown-toggle" href="/board/list">홈페이지 수정 <span
 								class="caret"></span>
 						</a>
 							<ul class="dropdown-menu">

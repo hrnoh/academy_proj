@@ -3,6 +3,8 @@ package org.kpu.academy.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.kpu.academy.domain.UserVO;
 import org.kpu.academy.service.UserService;
@@ -217,5 +219,36 @@ public class UserController {
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/user/manager";
+	}
+	
+	@PostMapping("/login")
+	public String login(HttpServletRequest request,
+			@RequestParam("id") String id,
+			@RequestParam("pwd") String pwd,
+			RedirectAttributes rttr) throws Exception {
+		UserVO vo = userService.login(id, pwd);
+		
+		if(vo != null) {
+			request.getSession().setAttribute("login", vo);
+			rttr.addFlashAttribute("loginMsg", "SUCCESS");
+		}
+		else {
+			rttr.addFlashAttribute("loginMsg", "FAIL");
+		}
+		
+		return "redirect:/home";
+	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpServletRequest request) throws Exception {
+		HttpSession session = request.getSession();
+		
+		logger.info("logout!");
+		
+		if(session.getAttribute("login") != null) {
+			session.removeAttribute("login");
+		}
+		
+		return "redirect:/home";
 	}
 }

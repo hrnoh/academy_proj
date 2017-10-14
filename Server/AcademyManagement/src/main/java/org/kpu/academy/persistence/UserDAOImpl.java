@@ -29,6 +29,15 @@ public class UserDAOImpl implements UserDAO {
 		// TODO Auto-generated method stub
 		return session.selectOne(namespace + ".read", uno);
 	}
+	
+	@Override
+	public UserVO readByIdAndPwd(String id, String pwd) throws Exception {
+		Map<String, String> params = new HashMap<>();
+		params.put("id", id);
+		params.put("pwd", pwd);
+		
+		return session.selectOne(namespace + ".readByIdAndPwd", params);
+	}
 
 	@Override
 	public void update(UserVO vo) throws Exception {

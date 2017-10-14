@@ -15,6 +15,12 @@
 		where uno = #{uno}
 	</select>
 	
+	<select id="readByIdAndPwd" resultType="UserVO">
+		select *
+		from user
+		where id=#{id} and pwd=#{pwd}
+	</select>
+	
 	<update id="update">
 		update user set 
 		name=#{name}, 

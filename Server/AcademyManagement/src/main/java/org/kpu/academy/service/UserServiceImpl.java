@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userDAO.read(uno);
 	}
+	
+	@Override
+	public UserVO login(String id, String pwd) throws Exception {
+		return userDAO.readByIdAndPwd(id, pwd);
+	}
 
 	@Override
 	public void modify(UserVO vo) throws Exception {

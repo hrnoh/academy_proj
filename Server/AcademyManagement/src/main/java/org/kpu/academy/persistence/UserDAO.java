@@ -9,6 +9,8 @@ public interface UserDAO {
 	
 	public UserVO read(Integer uno) throws Exception;
 	
+	public UserVO readByIdAndPwd(String id, String pwd) throws Exception;
+	
 	public void update(UserVO vo) throws Exception;
 	
 	public void delete(Integer uno) throws Exception;

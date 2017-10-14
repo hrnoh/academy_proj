@@ -9,6 +9,8 @@ public interface UserService {
 	
 	public UserVO read(Integer uno) throws Exception;
 	
+	public UserVO login(String id, String pwd) throws Exception;
+	
 	public void modify(UserVO vo) throws Exception;
 	
 	public void remove(Integer uno) throws Exception;

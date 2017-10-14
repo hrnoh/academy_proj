@@ -42,9 +42,15 @@
 								 <input type="text" class="form-control" name="lname">
 							</div>
 							
+							<!-- 강사 입력 -->
 							<label for="teacher" class="col-xs-1 control-label">강사:</label>
 						    <div class="col-xs-4">
-								 <input type="text" class="form-control" name="teacher">
+						    	<c:if test="${login.role == '강사' }">
+									<input type="text" class="form-control" name="teacher" value="${login.name }" disabled>
+								</c:if>
+								<c:if test="${login.role != '강사' }">
+									<input type="text" class="form-control" name="teacher">
+								</c:if>
 							</div>
 						  </div>
 						  

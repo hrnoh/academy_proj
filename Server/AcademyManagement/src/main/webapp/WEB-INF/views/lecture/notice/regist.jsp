@@ -39,7 +39,7 @@
 					  
 					  	  <input type="hidden" name="lname" value="${noticeVO.lname }">
 					  	  <input type="hidden" name="lno" value="${noticeVO.lno }">
-					  	  <input type="hidden" name="uno" value="1">
+					  	  <input type="hidden" name="uno" value="${login.uno }">
 					  
 					  	  <!-- 행1 -->
 						  <div class="form-group">

@@ -39,7 +39,6 @@
 					  
 					  	  <input type="hidden" name="lname" value="${takeCourseVO.lname }">
 					  	  <input type="hidden" name="lno" value="${takeCourseVO.lno }">
-					  	  <input type="hidden" name="uno" value="1">
 					  
 					  	  <!-- 행1 -->
 						  <div class="form-group">

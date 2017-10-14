@@ -21,7 +21,9 @@
 				  	<a href="/lecture/list" class="list-group-item">수업 목록</a>
 				  	<a href="/lecture/read?lno=${noticeVO.lno }" class="list-group-item">수업 상세</a>
 				  	<a href="" class="list-group-item active">알림장</a>
-				  	<a href="/lecture/students/list?lno=${noticeVO.lno }&lname=${noticeVO.lname }" class="list-group-item">수강생</a>
+				  	<c:if test="${login.role == '관리자' || login.role == '강사' }">
+					  	<a href="/lecture/students/list?lno=${noticeVO.lno }&lname=${noticeVO.lname }" class="list-group-item">수강생</a>
+					</c:if>
 				  </div>
 				</div>
 			</div>
@@ -55,11 +57,13 @@
 					  </table>
 					  <!-- 테이블 끝 -->
 					  
-					  <!-- 등록 버튼 -->
-					  <div class="row col-xs-12 text-right">
-					  	<input id="registBtn" class="btn btn-default" type="button" value="등록">
-					  </div>
-					  <!-- 등록 버튼 끝 -->
+					  <!-- 등록 버튼(강사, 관리자) -->
+					  <c:if test="${login.role == '관리자' || login.role == '강사' }">
+						  <div class="row col-xs-12 text-right">
+						  	<input id="registBtn" class="btn btn-default" type="button" value="등록">
+						  </div>
+						  <!-- 등록 버튼 끝 -->
+					  </c:if>
 					  </div>
 					  <!-- 패널 바디 끝 -->
 				  

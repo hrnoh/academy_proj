@@ -19,7 +19,10 @@
 				  <!-- List group -->
 				  <div class="list-group">
 				  	<a href="" class="list-group-item active">수업 조회</a>
-				    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+				  	<!-- 수업 등록(강사, 관리자) -->
+				  	<c:if test="${login.role == '강사' || login.role == '관리자' }">
+					    <a href="/lecture/regist" class="list-group-item">수업 등록</a>
+					</c:if>
 				  </div>
 				</div>
 			</div>
@@ -59,11 +62,13 @@
 					  </table>
 					  <!-- 테이블 끝 -->
 					  
-					  <!-- 등록 버튼 -->
-					  <div class="row col-xs-12 text-right">
-					  	<input id="registBtn" class="btn btn-default" type="button" value="등록">
-					  </div>
-					  <!-- 등록 버튼 끝 -->
+					  <!-- 등록 버튼 (강사, 관리자) -->
+					  <c:if test="${login.role == '강사' || login.role == '관리자' }">
+						  <div class="row col-xs-12 text-right">
+						  	<input id="registBtn" class="btn btn-default" type="button" value="등록">
+						  </div>
+						  <!-- 등록 버튼 끝 -->
+					  </c:if>
 					  </div>
 					  <!-- 패널 바디 끝 -->
 				  

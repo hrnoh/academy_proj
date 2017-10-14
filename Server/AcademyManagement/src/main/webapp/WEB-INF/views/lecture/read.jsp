@@ -21,7 +21,9 @@
 				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list-group-item">수업 목록</a>
 				  	<a href="" class="list-group-item active">수업 상세</a>
 				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item">알림장</a>
-				  	<a href="" class="list-group-item">수강생</a>
+				  	<c:if test="${login.role == '관리자' || login.role == '강사' }">
+				  		<a href="/lecture/students/list?lno=${lectureVO.lno }&lname=${lectureVO.lname}" class="list-group-item">수강생</a>
+				  	</c:if>
 				  </div>
 				</div>
 			</div>
@@ -87,9 +89,11 @@
 						  <!-- 등록 버튼 -->
 						  <div class="form-group">	
 						  	<div class="col-xs-offset-8 col-xs-4 text-right">
-							 	 <input id="modifyBtn" class="btn btn-default" type="submit" value="수정">
-							 	 <input id="removeBtn" class="btn btn-default" type="submit" value="삭제">
-							 	 <input id="listBtn" class="btn btn-default" type="button" value="목록">
+						  		<c:if test="${login.role == '강사' || login.role == '관리자' }">
+								 	<input id="modifyBtn" class="btn btn-default" type="submit" value="수정">
+								 	<input id="removeBtn" class="btn btn-default" type="submit" value="삭제">
+							 	</c:if>
+							 	<input id="listBtn" class="btn btn-default" type="button" value="목록">
 							 </div>
 						  </div>
 					  

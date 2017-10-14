@@ -19,15 +19,15 @@
 				  <!-- List group -->
 				  <div class="list-group">
 				  <c:choose>
-				  	<c:when test="${userVO.role == '관리자' }">
+				  	<c:when test="${login.role == '관리자' }">
 				  		<a href="/user/student" class="list-group-item">학생/학부모</a>
 					  	<a href="/user/teacher" class="list-group-item active">강사</a>
 					  	<a href="/user/manager" class="list-group-item ">관리자</a>
 				  	</c:when>
 				  	
-					<c:when test="${userVO.role == '강사' }">
+					<c:when test="${login.role == '강사' }">
 				  		<a href="/user/student" class="list-group-item">학생/학부모</a>
-					  	<a href="/user/teacher/detail?uno=${userVO.uno }" class="list-group-item active">강사</a>
+					  	<a href="/user/teacher/detail?uno=${login.uno }" class="list-group-item active">강사</a>
 				  	</c:when>
 				  	
 				  	<c:otherwise>

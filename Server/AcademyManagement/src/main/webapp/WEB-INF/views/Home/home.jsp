@@ -20,7 +20,7 @@
 				<ul class="list-group">
 					
 					<li class="list-group-item"><a href="#introduce">학원소개</a></li>
-					<li class="list-group-item"><a href="#notice">공지사항</a></li>
+					<li class="list-group-item"><a href="/board/list">공지사항</a></li>
 				</ul>
 			</div>
 		</div>

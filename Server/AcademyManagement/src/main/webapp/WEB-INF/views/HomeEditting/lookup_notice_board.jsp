@@ -10,7 +10,20 @@
 	<div class="row content">
 
 		<!-- left menu -->
-		<%@include file="left_menu.jsp" %>
+		<div class="col-xs-2">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<b>공지사항</b>
+				</div>
+				<div class="list-group">
+					<a href="/board/list" class="list-group-item active">공지사항 조회</a>
+					<c:if test="${login.role == '관리자' }">
+						<a href="/board/regist"	class="list-group-item">공지사항 작성</a>
+					</c:if>
+				</div>
+			</div>
+		</div>
 
 		<!-- contents -->
 		<div class="col-xs-10 text-left">

@@ -2,7 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- 헤더 -->
 <%@include file="../layout/header.jsp" %>
-<title>공지사항 작성</title>
+<title>공지사항</title>
 <!-- 공지사항 게시판 css -->
 <link rel="stylesheet" href="/resources/css/noticeboard.css">
 
@@ -14,7 +14,20 @@
 	<div class="row content">
 
 		<!-- left menu -->
-		<%@include file="left_menu.jsp"%>
+		<div class="col-xs-2">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<b>공지사항</b>
+				</div>
+				<div class="list-group">
+					<a href="/board/list" class="list-group-item active">공지사항 조회</a>
+					<c:if test="${login.role == '관리자' }">
+						<a href="/board/regist"	class="list-group-item">공지사항 작성</a>
+					</c:if>
+				</div>
+			</div>
+		</div>
 
 		<!-- contents -->
 		<div class="col-xs-10 text-left">
@@ -51,8 +64,10 @@
 
 					<tr align="right" valign="middle">
 						<td colspan="5">
-							<input id="modifyBtn" type="button" value="수정">
-							<input id="removeBtn" type="button" value="삭제">
+							<c:if test="${login.role == '관리자' }">
+								<input id="modifyBtn" type="button" value="수정">
+								<input id="removeBtn" type="button" value="삭제">
+							</c:if>
 							<input id="listBtn" type="button" value="목록">
 						</td>
 					</tr>

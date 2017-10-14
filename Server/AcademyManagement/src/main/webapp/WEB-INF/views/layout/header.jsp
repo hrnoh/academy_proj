@@ -132,21 +132,12 @@
 						</ul></li>
 						
 					<!-- 상담(학생, 강사, 관리자) -->
-					<li><a class="dropdown-toggle" href="/consulting">상담 <span
+					<li><a class="dropdown-toggle" href="/consulting/list">상담 <span
 							class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
-							<!-- 상담 신청 내역 조회(학생, 강사, 관리자) -->
 							<li><a href="/consulting/list">상담 신청 내역 조회</a></li>
-							<!-- 상담 등록(강사, 관리자) or 상담 신청(학생) -->
-							<c:choose>
-								<c:when test="${(login.role == '강사') || (login.role == '관리자') }">
-									<li><a href="/consulting/regist">상담 등록</a></li>
-								</c:when>
-								<c:otherwise>
-									<li><a href="/consulting/apply">상담 신청</a></li>
-								</c:otherwise>
-							</c:choose>
+							<li><a href="/consulting/regist">상담 등록</a></li>
 						</ul></li>
 					
 					<!-- 계정 관리(학생, 강사, 관리자) -->

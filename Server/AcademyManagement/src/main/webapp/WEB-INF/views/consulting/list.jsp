@@ -27,6 +27,9 @@
 						<c:when test="${login.role == '강사' }">
 							<a class="list-group-item active" href="/consulting/list?searchType=counselor&keyword=${login.name }">신청 내역 조회</a>
 						</c:when>
+						<c:otherwise>
+							<a class="list-group-item active" href="/consulting/list">신청 내역 조회</a>
+						</c:otherwise>
 					</c:choose>
 					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>

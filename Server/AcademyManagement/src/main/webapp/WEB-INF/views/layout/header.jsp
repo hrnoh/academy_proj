@@ -142,6 +142,10 @@
 							<a class="dropdown-toggle" href="/consulting/list?searchType=counselor&keyword=${login.name }">상담<span
 							class="caret"></span></a>
 						</c:when>
+						<c:otherwise>
+							<a class="dropdown-toggle" href="/consulting/list">상담<span
+							class="caret"></span></a>
+						</c:otherwise>
 					</c:choose>
 						<ul class="dropdown-menu">
 							<c:choose>
@@ -151,6 +155,9 @@
 								<c:when test="${login.role == '강사' }">
 									<li><a href="/consulting/list?searchType=counselor&keyword=${login.name }">상담 신청 내역 조회</a></li>
 								</c:when>
+								<c:otherwise>
+									<li><a href="/consulting/list">상담 신청 내역 조회</a></li>
+								</c:otherwise>
 							</c:choose>
 							<li><a href="/consulting/regist">상담 등록</a></li>
 						</ul>

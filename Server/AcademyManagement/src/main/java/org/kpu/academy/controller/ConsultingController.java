@@ -38,8 +38,6 @@ public class ConsultingController {
 		logger.info(cri.toString());
 		
 		List<ConsultingVO> list = consultingService.list(cri);
-		for(ConsultingVO vo : list)
-			logger.info(vo.toString());
 		
 		model.addAttribute("list", list);
 		
@@ -67,24 +65,18 @@ public class ConsultingController {
 	public String registPOST(ConsultingVO consultingVO, 
 			@RequestParam("loginRole") String loginRole,
 			RedirectAttributes rttr) throws Exception {
-		String returnVal;
 		
 		logger.info(consultingVO.toString());
+		logger.info(loginRole);
 		consultingService.regist(consultingVO);
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		if(loginRole.equals("학생")) {
-			returnVal = "redirect:/consulting/list?searchType=client&keyword=" + consultingVO.getClient();
-		}
-		else if(loginRole.equals("강사")) {
-			returnVal = "redirect:/consulting/list?searchType=counselor&keyword=" + consultingVO.getCounselor();
-		}
-		else {
-			returnVal = "redirect:/consulting/list";
-		}
+		rttr.addAttribute("searchType", "counselor");
+		rttr.addAttribute("keyword", consultingVO.getCounselor());
+		rttr.addAttribute("loginRole", loginRole);
 		
-		return returnVal;
+		return "redirect:/consulting/list";
 	}
 	
 	@GetMapping("/modify")

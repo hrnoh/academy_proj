@@ -75,7 +75,8 @@
 								<c:choose>
 									<c:when test="${login.role == '강사' }">
 										<input type="hidden" id="counselorNum" name="counselorNum" value="${login.uno }">
-										<input type="text" class="form-control" id="counselor" name="counselor" value="${login.name }" disabled>
+										<input type="hidden" name="counselor" value="${login.name }">
+										<input type="text" class="form-control" id="counselor" value="${login.name }" disabled>
 										<button type="button" class="btn btn-default active" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static" disabled>검색</button>
 									</c:when>
 									<c:otherwise>

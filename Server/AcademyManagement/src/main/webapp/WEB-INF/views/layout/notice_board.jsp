@@ -42,9 +42,11 @@
 			</tbody>
 		</table>
 		
+		<c:if test="${login.role == '관리자' }">
 		<div class="text-right" id="write">
 			<a href="/board/regist">글쓰기</a>
 		</div>
+		</c:if>
 
 		<!-- Paging 처리 -->
 		<div id="paging">

@@ -91,43 +91,43 @@
 					  <div class="form-group">
 					    <label for="id" class="col-xs-2 control-label">아이디 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="id" value="hrnoh">
+					    	<input type="input" class="form-control" id="id" value="${userVO.id }">
 					    </div>
 					    
 					    <label for="pwd" class="col-xs-2 control-label">비밀번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="pwd" value="1234">
+					    	<input type="input" class="form-control" id="pwd" value="${userVO.pwd }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="phone" class="col-xs-2 control-label">전화번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" value="031-123-5678">
+					    	<input type="input" class="form-control" id="phone" value="${userVO.phone }">
 					    </div>
 					    
 					    <label for="mPhone" class="col-xs-2 control-label">휴대폰 번호 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" value="010-1234-5678">
+					    	<input type="input" class="form-control" id="mPhone" value="${userVO.mPhone }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="phone" class="col-xs-2 control-label">이메일 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="phone" value="031-123-5678">
+					    	<input type="input" class="form-control" id="phone" value="${userVO.email }">
 					    </div>
 					    
 					    <label for="mPhone" class="col-xs-2 control-label">주소 : </label>
 					    <div class="col-xs-4">
-					    	<input type="input" class="form-control" id="mPhone" value="010-1234-5678">
+					    	<input type="input" class="form-control" id="mPhone" value="${userVO.address }">
 					    </div>
 					  </div>
 					  
 					  <div class="form-group">
 					    <label for="phone" class="col-xs-2 control-label">등록일 : </label>
 					    <div class="col-xs-4">
-					    	<p class="form-control-static">2017-10-08 17:00</p>
+					    	<p class="form-control-static">${userVO.regDate }</p>
 					    </div>
 					  </div>		  
 					
@@ -136,8 +136,10 @@
 					<div class="row">
 						<div class="col-xs-push-8 col-xs-4 text-right">
 						 	<input class="btn btn-default" type="submit" value="수정">
+						 	<c:if test="${login.role != '강사' }">
 						 	<input id="removeBtn" class="btn btn-default" type="button" value="삭제">
 						 	<input id="listBtn" class="btn btn-default" type="button" value="목록">
+						 	</c:if>
 						 </div>
 					</div>
 					</form>

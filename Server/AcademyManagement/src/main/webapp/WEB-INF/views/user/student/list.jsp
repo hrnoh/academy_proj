@@ -27,7 +27,7 @@
 				  	
 				  	<c:when test="${login.role == '강사' }">
 				  		<a href="/user/student" class="list-group-item active">학생/학부모</a>
-					  	<a href="/user/teacher/detail?uno=${userVO.uno }" class="list-group-item ">강사</a>
+					  	<a href="/user/teacher/detail?uno=${login.uno }" class="list-group-item ">강사</a>
 				  	</c:when>
 				  	
 				  	<c:otherwise>

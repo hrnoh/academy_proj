@@ -23,7 +23,14 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="/consulting/list" class="list-group-item">신청 내역 조회</a> 
+					<c:choose>
+						<c:when test="${login.role == '학생' }">
+							<a class="list-group-item" href="/consulting/list?searchType=client&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+						<c:when test="${login.role == '강사' }">
+							<a class="list-group-item" href="/consulting/list?searchType=counselor&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+					</c:choose>
 					<a href="" class="list-group-item active">상담 등록</a>
 				</div>
 			</div>
@@ -42,33 +49,38 @@
 				<div class="panel-body">
 					<!-- 입력 양식 -->
 					<form class="form-horizontal" id="consultingForm" action="/consulting/regist" method="post">
+						<input type="hidden" name="loginRole" value="${login.role }">
+					
 						<!-- 행1 -->
 						<div class="form-group">
 							
 							<label for="client" class="control-label col-xs-2">신청자:</label>
 							<div class="col-xs-10 form-inline">
 								<!-- 상담자 -->
-								<input type="hidden" id="clientNum" name="clientNum" value="">
 								<c:choose>
 									<c:when test="${login.role == '학생' }">
+										<input type="hidden" id="clientNum" name="clientNum" value="${login.uno }">
+										<input type="hidden" name="client" value="${login.name }">
 										<input type="text" class="form-control" id="client" value="${login.name }" disabled>
 										<button type="button" class="btn btn-default active" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static" disabled>검색</button>
 									</c:when>
 									<c:otherwise>
-										<input type="text" class="form-control" id="client" value="" disabled>
+										<input type="hidden" id="clientNum" name="clientNum" value="">
+										<input type="text" class="form-control" id="client" name="client" value="" disabled>
 										<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static">검색</button>
 									</c:otherwise>
 								</c:choose>
 								
 								<label for="" class="control-label">상담자:</label>
-								<input type="hidden" id="counselorNum" name="counselorNum" value="">
 								<c:choose>
 									<c:when test="${login.role == '강사' }">
-										<input type="text" class="form-control" id="counselor" value="${login.name }" disabled>
+										<input type="hidden" id="counselorNum" name="counselorNum" value="${login.uno }">
+										<input type="text" class="form-control" id="counselor" name="counselor" value="${login.name }" disabled>
 										<button type="button" class="btn btn-default active" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static" disabled>검색</button>
 									</c:when>
 									<c:otherwise>
-										<input type="text" class="form-control" id="counselor" value="" disabled>
+										<input type="hidden" id="counselorNum" name="counselorNum" value="">
+										<input type="text" class="form-control" id="counselor" name="counselor" value="" disabled>
 										<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static">검색</button>
 									</c:otherwise>
 								</c:choose>
@@ -90,7 +102,6 @@
 							<div class="col-xs-4">
 								<select class="form-control" name="status">
 									<option value="신청" selected>신청</option>
-									<option value="등록">등록</option>
 									<option value="완료">완료</option>
 								</select>
 							</div>
@@ -325,7 +336,18 @@ $(document).on("click", ".teacherSelBtn", function(event) {
 });
 
 $("#listBtn").on("click", function(e) {
-	location.href="/consulting/list";
+	var loginRole = "${login.role}";
+	var name = "${login.name}";
+	
+	if(loginRole == '학생') {
+		location.href="/consulting/list?searchType=client&keyword="+name;
+	}
+	else if(loginRole == '강사') {
+		location.href="/consulting/list?searchType=counselor&keyword="+name;
+	}
+	else {
+		location.href="/consulting/list";
+	}
 });
 </script>
 

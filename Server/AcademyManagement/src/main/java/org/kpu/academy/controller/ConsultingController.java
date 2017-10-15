@@ -64,13 +64,27 @@ public class ConsultingController {
 	}
 	
 	@PostMapping("/regist")
-	public String registPOST(ConsultingVO consultingVO, RedirectAttributes rttr) throws Exception {
+	public String registPOST(ConsultingVO consultingVO, 
+			@RequestParam("loginRole") String loginRole,
+			RedirectAttributes rttr) throws Exception {
+		String returnVal;
+		
 		logger.info(consultingVO.toString());
 		consultingService.regist(consultingVO);
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		return "redirect:/consulting/list";
+		if(loginRole.equals("학생")) {
+			returnVal = "redirect:/consulting/list?searchType=client&keyword=" + consultingVO.getClient();
+		}
+		else if(loginRole.equals("강사")) {
+			returnVal = "redirect:/consulting/list?searchType=counselor&keyword=" + consultingVO.getCounselor();
+		}
+		else {
+			returnVal = "redirect:/consulting/list";
+		}
+		
+		return returnVal;
 	}
 	
 	@GetMapping("/modify")
@@ -83,7 +97,8 @@ public class ConsultingController {
 	}
 	
 	@PostMapping("/modify")
-	public String modify(ConsultingVO consultingVO, 
+	public String modify(ConsultingVO consultingVO,
+			@RequestParam("loginRole") String loginRole,
 			SearchCriteria cri,
 			RedirectAttributes rttr) throws Exception {
 		logger.info(consultingVO.toString());
@@ -93,6 +108,7 @@ public class ConsultingController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("loginRole", loginRole);
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
@@ -101,6 +117,7 @@ public class ConsultingController {
 	
 	@PostMapping("/remove")
 	public String delete(@RequestParam("cno") int cno,
+			@RequestParam("loginRole") String loginRole,
 			SearchCriteria cri,
 			RedirectAttributes rttr) throws Exception {
 		logger.info("delete - " + cno);
@@ -110,6 +127,7 @@ public class ConsultingController {
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addAttribute("searchType", cri.getSearchType());
 		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("loginRole", loginRole);
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		

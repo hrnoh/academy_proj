@@ -21,7 +21,14 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="" class="list-group-item active">신청 내역 조회</a> 
+					<c:choose>
+						<c:when test="${login.role == '학생' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=client&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+						<c:when test="${login.role == '강사' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=counselor&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+					</c:choose>
 					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
@@ -46,6 +53,7 @@
 						<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 						<input type='hidden' name='searchType' value="${cri.searchType}">
 						<input type='hidden' name='keyword' value="${cri.keyword}">
+						<input type='hidden' name='loginRole' value="${login.role}">
 						
 						<!-- 행1 -->
 						<div class="form-group">
@@ -85,7 +93,8 @@
 						<div class="form-group">
 							<div class="col-xs-11 text-right">
 								<input id="modifyBtn" class="btn btn-default" type="button" value="수정"> 
-								<input id="removeBtn" class="btn btn-default" type="button" value="거절"> 
+								<input id="removeBtn" class="btn btn-default" type="button" 
+								value=<c:out value="${login.role=='강사'? '거절':'삭제' }"/>> 
 								<input id="listBtn" class="btn btn-default" type="button" value="목록">
 							</div>
 						</div>

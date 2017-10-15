@@ -20,7 +20,14 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="" class="list-group-item active">신청 내역 조회</a>
+					<c:choose>
+						<c:when test="${login.role == '학생' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=client&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+						<c:when test="${login.role == '강사' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=counselor&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+					</c:choose>
 					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
@@ -42,8 +49,20 @@
 					<div class="row col-xs-12">
 						<form id="myForm" action="/consulting/list" method="get">
 						
-							<input type="hidden" name="searchType" value=""/>
-							<input type="hidden" name="keyword" value=""/>
+							<c:choose>
+								<c:when test="${login.role == '학생' }">
+									<input type="hidden" name="searchType" value="client"/>
+									<input type="hidden" name="keyword" value="${login.name }"/>
+								</c:when>
+								<c:when test="${login.role == '강사' }">
+									<input type="hidden" name="searchType" value="counselor"/>
+									<input type="hidden" name="keyword" value="${login.name }"/>
+								</c:when>
+								<c:otherwise>
+									<input type="hidden" name="searchType" value=""/>
+									<input type="hidden" name="keyword" value=""/>
+								</c:otherwise>
+							</c:choose>
 						
 							<table>
 								<tr>
@@ -56,7 +75,6 @@
 									<td colspan="2"><select name="status" class="form-control">
 											<option value="" selected>&nbsp;</option>
 											<option value="신청">신청</option>
-											<option value="등록">등록</option>
 											<option value="완료">완료</option>
 									</select></td>
 
@@ -71,19 +89,51 @@
 								</tr>
 								<tr>
 									<td>신청자</td>
-									<td><input type="text" name="client" class="form-control"></td>
-									<td><input id="searchByClientBtn" type="button" value="검색" class="btn btn-default"></td>
-
+									<c:choose>
+									<c:when test="${login.role=='학생' }">
+										<td><input type="text" name="client" class="form-control" value="${login.name }" disabled></td>
+										<td><input id="searchByClientBtn" type="button" value="검색" class="btn btn-default"></td>
+									</c:when>
+									<c:when test="${login.role=='강사' }">
+										<td><input type="text" name="client" class="form-control" value="" disabled></td>
+										<td><input id="searchByClientBtn" type="button" value="검색" class="btn btn-default" disabled></td>
+									</c:when>
+									<c:otherwise>
+										<td><input type="text" name="client" class="form-control"></td>
+										<td><input id="searchByClientBtn" type="button" value="검색" class="btn btn-default"></td>
+									</c:otherwise>
+									</c:choose>
 									<td>&nbsp;</td>
 
 									<td>상담자</td>
-									<td><input type="text" name="counselor" class="form-control"></td>
-									<td><input id="searchByCounselorBtn" type="button" value="검색" class="btn btn-default"></td>
+									<c:choose>
+									<c:when test="${login.role=='학생' }">
+										<td><input type="text" name="counselor" class="form-control" value="" disabled></td>
+										<td><input id="searchByCounselorBtn" type="button" value="검색" class="btn btn-default" disabled></td>
+									</c:when>
+									<c:when test="${login.role=='강사' }">
+										<td><input type="text" name="counselor" class="form-control" value="${login.name }" disabled></td>
+										<td><input id="searchByCounselorBtn" type="button" value="검색" class="btn btn-default"></td>
+									</c:when>
+									<c:otherwise>
+										<td><input type="text" name="counselor" class="form-control"></td>
+										<td><input id="searchByCounselorBtn" type="button" value="검색" class="btn btn-default"></td>
+									</c:otherwise>
+									</c:choose>
+									
 								</tr>
 								<tr>
 									<td>상담 내용</td>
-									<td><input type="text" name="content" class="form-control"></td>
-									<td><input id="searchByContentBtn" type="button" value="검색" class="btn btn-default"></td>
+									<c:choose>
+									<c:when test="${login.role=='학생' || login.role=='강사' }">
+										<td><input type="text" name="content" class="form-control" disabled></td>
+										<td><input id="searchByContentBtn" type="button" value="검색" class="btn btn-default" disabled></td>
+									</c:when>
+									<c:otherwise>
+										<td><input type="text" name="content" class="form-control"></td>
+										<td><input id="searchByContentBtn" type="button" value="검색" class="btn btn-default"></td>
+									</c:otherwise>
+									</c:choose>
 
 									<td>&nbsp;</td>
 
@@ -116,7 +166,7 @@
 						<table class="table table-hover" style="width: 100%;">
 						<c:forEach items="${list}" var="consultingVO">
 							<tr class='clickable-row'
-								data-href='/consulting/read${pageMaker.makeSearch(pageMaker.cri.page)}?cno=${consultingVO.cno}'
+								data-href='/consulting/read?searchType=${cri.searchType }&keyword=${cri.keyword }&cno=${consultingVO.cno}'
 								style="cursor: pointer">
 								<td width="10%">${consultingVO.status }</td>
 								<td width="10%">${consultingVO.type }</td>

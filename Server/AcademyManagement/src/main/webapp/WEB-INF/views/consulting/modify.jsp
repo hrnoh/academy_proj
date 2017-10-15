@@ -23,7 +23,14 @@
 
 				<!-- List group -->
 				<div class="list-group">
-					<a href="/consulting/list" class="list-group-item active">신청 내역 조회</a> 
+					<c:choose>
+						<c:when test="${login.role == '학생' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=client&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+						<c:when test="${login.role == '강사' }">
+							<a class="list-group-item active" href="/consulting/list?searchType=counselor&keyword=${login.name }">신청 내역 조회</a>
+						</c:when>
+					</c:choose>
 					<a href="/consulting/regist" class="list-group-item">상담 등록</a>
 				</div>
 			</div>
@@ -36,7 +43,7 @@
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
 				<div class="panel-heading">
-					<b>상담 등록</b>
+					<b>상담 수정</b>
 				</div>
 
 				<div class="panel-body">
@@ -48,6 +55,7 @@
 						<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
 						<input type='hidden' name='searchType' value ="${cri.searchType }">
 	    				<input type='hidden' name='keyword' value ="${cri.keyword }">
+	    				<input type='hidden' name='loginRole' value ="${login.role }">
 						
 						<!-- 행1 -->
 						<div class="form-group">
@@ -56,11 +64,13 @@
 							<div class="col-xs-10 form-inline">
 								<input type="hidden" id="clientNum" name="clientNum" value="${consultingVO.clientNum }">
 								<input type="text" class="form-control" id="client" value="${consultingVO.client }" disabled>
-								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static">검색</button>
+								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findStudentModal" data-backdrop="static"
+								<c:out value="${login.role=='학생'? 'disabled':''}"/>>검색</button>
 								<label for="" class="control-label">상담자:</label>
 								<input type="hidden" id="counselorNum" name="counselorNum" value="${consultingVO.counselorNum }">
 								<input type="text" class="form-control" id="counselor" value="${consultingVO.counselor }" disabled>
-								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static">검색</button>
+								<button type="button" class="btn btn-default" data-toggle="modal" data-target="#findTeacherModal" data-backdrop="static"
+								<c:out value="${login.role=='강사'? 'disabled':''}"/>>검색</button>
 							</div>
 
 						</div>
@@ -79,8 +89,9 @@
 							<div class="col-xs-4">
 								<select class="form-control" name="status">
 									<option value="신청" <c:out value="${consultingVO.status=='신청'? 'selected':'' }"/>>신청</option>
-									<option value="등록" <c:out value="${consultingVO.status=='등록'? 'selected':'' }"/>>등록</option>
+									<c:if test="${login.role != '학생' }">
 									<option value="완료" <c:out value="${consultingVO.status=='완료'? 'selected':'' }"/>>완료</option>
+									</c:if>
 								</select>
 							</div>
 

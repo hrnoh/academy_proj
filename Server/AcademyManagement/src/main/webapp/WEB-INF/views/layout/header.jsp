@@ -132,13 +132,29 @@
 						</ul></li>
 						
 					<!-- 상담(학생, 강사, 관리자) -->
-					<li><a class="dropdown-toggle" href="/consulting/list">상담 <span
-							class="caret"></span>
-					</a>
+					<li>
+					<c:choose>
+						<c:when test="${login.role == '학생' }">
+							<a class="dropdown-toggle" href="/consulting/list?searchType=client&keyword=${login.name }">상담<span
+							class="caret"></span></a>
+						</c:when>
+						<c:when test="${login.role == '강사' }">
+							<a class="dropdown-toggle" href="/consulting/list?searchType=counselor&keyword=${login.name }">상담<span
+							class="caret"></span></a>
+						</c:when>
+					</c:choose>
 						<ul class="dropdown-menu">
-							<li><a href="/consulting/list">상담 신청 내역 조회</a></li>
+							<c:choose>
+								<c:when test="${login.role == '학생' }">
+									<li><a href="/consulting/list?searchType=client&keyword=${login.name }">상담 신청 내역 조회</a></li>
+								</c:when>
+								<c:when test="${login.role == '강사' }">
+									<li><a href="/consulting/list?searchType=counselor&keyword=${login.name }">상담 신청 내역 조회</a></li>
+								</c:when>
+							</c:choose>
 							<li><a href="/consulting/regist">상담 등록</a></li>
-						</ul></li>
+						</ul>
+					</li>
 					
 					<!-- 계정 관리(학생, 강사, 관리자) -->
 					<li>

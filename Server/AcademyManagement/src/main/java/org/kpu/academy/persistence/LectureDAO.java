@@ -20,7 +20,15 @@ public interface LectureDAO {
 	
 	public List<LectureVO> listPage(Criteria cri) throws Exception;
 	
+	public List<LectureVO> listPageByUno(Criteria cri, int uno) throws Exception;
+	
+	public List<LectureVO> listPageByUnoForStudent(Criteria cri, int uno) throws Exception;
+	
 	public int listCount() throws Exception;
+	
+	public int listCountByUno(int uno) throws Exception;
+	
+	public int listCountByUnoForStudent(int uno) throws Exception;
 	
 	// 수강생
 	public void sCreate(TakeCourseVO vo) throws Exception;

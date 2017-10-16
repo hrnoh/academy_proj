@@ -57,8 +57,38 @@ public class LectureDAOImpl implements LectureDAO {
 	}
 	
 	@Override
+	public List<LectureVO> listPageByUno(Criteria cri, int uno) throws Exception {
+		Map<String, Object> params = new HashMap<>();
+		params.put("pageStart", cri.getPageStart());
+		params.put("perPageNum", cri.getPerPageNum());
+		params.put("uno", uno);
+		
+		return session.selectList(namespace + ".listPageByUno", params);
+	}
+	
+	@Override
 	public int listCount() throws Exception {
 		return session.selectOne(namespace + ".listCount");
+	}
+	
+	@Override
+	public int listCountByUno(int uno) throws Exception {
+		return session.selectOne(namespace + ".listCountByUno", uno);
+	}
+	
+	@Override
+	public List<LectureVO> listPageByUnoForStudent(Criteria cri, int uno) throws Exception {
+		Map<String, Object> params = new HashMap<>();
+		params.put("pageStart", cri.getPageStart());
+		params.put("perPageNum", cri.getPerPageNum());
+		params.put("uno", uno);
+		
+		return session.selectList(namespace + ".listPageByUnoForStudent", params);
+	}
+	
+	@Override
+	public int listCountByUnoForStudent(int uno) throws Exception {
+		return session.selectOne(namespace + ".listCountByUnoForStudent", uno);
 	}
 	
 	@Override

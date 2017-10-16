@@ -18,7 +18,7 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list-group-item">수업 목록</a>
+				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}&loginRole=${login.role}&uno=${login.uno}" class="list-group-item">수업 목록</a>
 				  	<a href="" class="list-group-item active">수업 상세</a>
 				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item">알림장</a>
 				  	<c:if test="${login.role == '관리자' || login.role == '강사' }">
@@ -38,7 +38,10 @@
 					  <div class="panel-body">
 					  <!-- 입력 양식 -->
 					  <form class="form-horizontal" id="myForm" action="/lecture/regist" method="post">
+					  	  
 					  	  <!-- hidden -->
+					  	  <input type="hidden" name="loginRole" value="${login.role }">
+					  	  <input type="hidden" name="uno" value="${login.uno }">
 					  	  <input type="hidden" name="lno" value="${lectureVO.lno}">
 					  	  <input type='hidden' name='page' value="${cri.page}"> 
 						  <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
@@ -127,7 +130,7 @@
 		});
 		
 		$("#listBtn ").on("click", function(){
-			self.location = "/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}";
+			self.location = "/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}&loginRole=${login.role}&uno=${login.uno}";
 		});
 		
 	});

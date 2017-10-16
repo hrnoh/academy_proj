@@ -18,7 +18,7 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list" class="list-group-item">수업 조회</a>
+				  	<a href="/lecture/list?loginRole=${login.role}&uno=${login.uno}" class="list-group-item">수업 조회</a>
 				    <a href="" class="list-group-item active">수업 등록</a>
 				  </div>
 				</div>
@@ -35,6 +35,9 @@
 					  <!-- 입력 양식 -->
 					  <form class="form-horizontal" id="myForm" action="/lecture/regist" method="post">
 					  
+					  	  <input type="hidden" name="uno" value="${login.uno }">
+					  	  <input type="hidden" name="loginRole" value="${login.role }">
+					  
 					  	  <!-- 행1 -->
 						  <div class="form-group">
 						    <label for="lname" class="col-xs-2 control-label">강의명:</label>
@@ -46,7 +49,8 @@
 							<label for="teacher" class="col-xs-1 control-label">강사:</label>
 						    <div class="col-xs-4">
 						    	<c:if test="${login.role == '강사' }">
-									<input type="text" class="form-control" name="teacher" value="${login.name }" disabled>
+									<input type="text" class="form-control" value="${login.name }" disabled>
+									<input type="hidden" name="teacher" value="${name }">
 								</c:if>
 								<c:if test="${login.role != '강사' }">
 									<input type="text" class="form-control" name="teacher">
@@ -118,7 +122,7 @@
 <script>
 	$(document).ready(function(){
 		$("#listBtn ").on("click", function(){
-			self.location = "/lecture/list";
+			self.location = "/lecture/list?loginRole=${login.role}&uno=${login.uno}";
 		});
 		
 	});

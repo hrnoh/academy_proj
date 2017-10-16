@@ -18,9 +18,9 @@ public interface LectureService {
 	
 	public List<LectureVO> listAll() throws Exception;
 	
-	public List<LectureVO> listPage(Criteria cri) throws Exception;
+	public List<LectureVO> listPage(Criteria cri, int uno, String role) throws Exception;
 	
-	public int listCount() throws Exception;
+	public int listCount(int uno, String role) throws Exception;
 	
 	// 수강생
 	public void sRegist(TakeCourseVO vo) throws Exception;

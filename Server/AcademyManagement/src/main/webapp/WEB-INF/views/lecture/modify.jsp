@@ -19,7 +19,7 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}" class="list-group-item">수업 목록</a>
+				  	<a href="/lecture/list?page=${cri.page}&perPageNum=${cri.perPageNum}&loginRole=${login.role}&uno=${login.uno}" class="list-group-item">수업 목록</a>
 				  	<a href="/lecture/read?page=${cri.page}&perPageNum=${cri.perPageNum}&lno=${lectureVO.lno}" class="list-group-item active">수업 상세</a>
 				  	<a href="/lecture/notice/list?lno=${lectureVO.lno }&lname=${lectureVO.lname }" class="list-group-item">알림장</a>
 				  	<a href="" class="list-group-item">수강생</a>
@@ -38,11 +38,11 @@
 					  <!-- 입력 양식 -->
 					  <form class="form-horizontal" id="myForm" action="/lecture/modify" method="post">
 					  	  
+					  	  <input type='hidden' name='loginRole' value="${login.role}">
+					  	  <input type='hidden' name='uno' value="${login.uno}">
 					  	  <input type='hidden' name='lno' value="${lectureVO.lno}">
-					  	  <!-- 
 					  	  <input type='hidden' name='page' value="${cri.page}"> 
 						  <input type='hidden' name='perPageNum' value="${cri.perPageNum}">
-						  -->
 					  	  
 					  	  <!-- 행1 -->
 						  <div class="form-group">

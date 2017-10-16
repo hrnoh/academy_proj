@@ -42,12 +42,17 @@ public class LectureController {
 	}
 	
 	@PostMapping("/regist")
-	public String registerPOST(LectureVO lectureVO, RedirectAttributes rttr) throws Exception {
+	public String registerPOST(LectureVO lectureVO, 
+			int uno,
+			String loginRole,
+			RedirectAttributes rttr) throws Exception {
 		logger.info("regist post ...............");
 		logger.info(lectureVO.toString());
 		
 		lectureService.regist(lectureVO);
 		
+		rttr.addAttribute("uno", uno);
+		rttr.addAttribute("loginRole", loginRole);
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
 		return "redirect:/lecture/list";
@@ -72,10 +77,14 @@ public class LectureController {
 	@PostMapping("/modify")
 	public String modifyPagingPOST(LectureVO lectureVO,
 			Criteria cri,
+			String loginRole,
+			int uno,
 			RedirectAttributes rttr) throws Exception {
 		
 		lectureService.modify(lectureVO);
 		
+		rttr.addAttribute("uno", uno);
+		rttr.addAttribute("loginRole", loginRole);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
@@ -87,10 +96,14 @@ public class LectureController {
 	@PostMapping("/remove")
 	public String remove(@RequestParam("lno") int lno,
 			Criteria cri,
+			String loginRole,
+			int uno,
 			RedirectAttributes rttr) throws Exception {
 		
 		lectureService.remove(lno);
 		
+		rttr.addAttribute("uno", uno);
+		rttr.addAttribute("loginRole", loginRole);
 		rttr.addAttribute("page", cri.getPage());
 		rttr.addAttribute("perPageNum", cri.getPerPageNum());
 		rttr.addFlashAttribute("msg", "SUCCESS");
@@ -100,13 +113,14 @@ public class LectureController {
 	
 	
 	@GetMapping("/list")
-	public void listPage(Criteria cri, Model model) throws Exception {
+	public void listPage(Criteria cri, Model model, int uno, String loginRole) throws Exception {
 		logger.info(cri.toString());
 		
-		model.addAttribute("list", lectureService.listPage(cri));
+		model.addAttribute("uno", uno);
+		model.addAttribute("list", lectureService.listPage(cri, uno, loginRole));
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(lectureService.listCount());
+		pageMaker.setTotalCount(lectureService.listCount(uno, loginRole));
 		
 		model.addAttribute("pageMaker", pageMaker);
 	}

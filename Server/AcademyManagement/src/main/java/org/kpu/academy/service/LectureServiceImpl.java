@@ -48,13 +48,37 @@ public class LectureServiceImpl implements LectureService {
 	}
 
 	@Override
-	public List<LectureVO> listPage(Criteria cri) throws Exception {
-		return lectureDAO.listPage(cri);
+	public List<LectureVO> listPage(Criteria cri, int uno, String role) throws Exception {
+		List<LectureVO> list;
+		
+		if(role.equals("학생")) {
+			list = lectureDAO.listPageByUnoForStudent(cri, uno);
+		}
+		else if(role.equals("강사")) {
+			list = lectureDAO.listPageByUno(cri, uno);
+		}
+		else {
+			list = lectureDAO.listPage(cri);
+		}
+		
+		return list;
 	}
 	
 	@Override
-	public int listCount() throws Exception {
-		return lectureDAO.listCount();
+	public int listCount(int uno, String role) throws Exception {
+		int count;
+		
+		if(role.equals("학생")) {
+			count = lectureDAO.listCountByUnoForStudent(uno);
+		}
+		else if(role.equals("강사")) {
+			count = lectureDAO.listCountByUno(uno);
+		}
+		else {
+			count = lectureDAO.listCount();
+		}
+		
+		return count;
 	}
 	
 	// 수강생

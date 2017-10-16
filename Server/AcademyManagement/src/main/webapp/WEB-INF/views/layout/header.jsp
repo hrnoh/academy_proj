@@ -119,12 +119,12 @@
 					</c:if>
 
 					<!-- 수업(학생, 강사, 관리자) -->
-					<li><a class="dropdown-toggle" href="/lecture/list">수업 <span
+					<li><a class="dropdown-toggle" href="/lecture/list?loginRole=${login.role }&uno=${login.uno}">수업 <span
 							class="caret"></span>
 					</a>
 						<ul class="dropdown-menu">
 							<!-- 수업 조회(학생, 강사, 관리자) -->
-							<li><a href="/lecture/list">수업 조회</a></li>
+							<li><a href="/lecture/list?loginRole=${login.role }&uno=${login.uno}">수업 조회</a></li>
 							<!-- 수업 등록(강사, 관리자) -->
 							<c:if test="${(login.role == '강사') || (login.role == '관리자') }">
 								<li><a href="/lecture/regist">수업 등록</a></li>

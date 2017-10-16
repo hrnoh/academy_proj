@@ -72,9 +72,16 @@ public class ConsultingController {
 		
 		rttr.addFlashAttribute("msg", "SUCCESS");
 		
-		rttr.addAttribute("searchType", "counselor");
-		rttr.addAttribute("keyword", consultingVO.getCounselor());
-		rttr.addAttribute("loginRole", loginRole);
+		if(loginRole.equals("학생")) {
+			rttr.addAttribute("searchType", "client");
+			rttr.addAttribute("keyword", consultingVO.getClient());
+			rttr.addAttribute("loginRole", loginRole);
+		}
+		else if(loginRole.equals("강사")) {
+			rttr.addAttribute("searchType", "counselor");
+			rttr.addAttribute("keyword", consultingVO.getCounselor());
+			rttr.addAttribute("loginRole", loginRole);
+		}
 		
 		return "redirect:/consulting/list";
 	}

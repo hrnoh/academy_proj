@@ -6,8 +6,7 @@
 
 	<insert id="create">
 		insert into lecture (lname, day, startTime, endTime, personnel, room, target, uno)
-		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, 
-		(select uno from user where name=#{teacher} and role="강사"))
+		values (#{lname}, #{day}, #{startTime}, #{endTime}, #{personnel}, #{room}, #{target}, #{uno})
 	</insert>
 
 	<select id="read" resultType="LectureVO">
@@ -42,10 +41,48 @@
 	]]>
 	</select>
 	
+	<select id="listPageByUno" resultType="LectureVO">
+	<![CDATA[
+		SELECT lno, lname, user.name as teacher, day, startTime, endTime, personnel, room, target
+		FROM lecture JOIN user ON lecture.uno = user.uno
+		WHERE lecture.uno = #{uno}
+		ORDER BY lno DESC
+		LIMIT #{pageStart}, #{perPageNum}
+	]]>
+	</select>
+	
+	<select id="listPageByUnoForStudent" resultType="lectureVO">
+	<![CDATA[
+		select lecture.lno, lname, user.name as teacher, day, startTime, endTime, personnel, room, target
+		from takecourse join user on takecourse.uno = user.uno
+		join lecture on takecourse.lno = lecture.lno
+		where takecourse.uno = #{uno}
+        ORDER BY lecture.lno DESC
+		LIMIT #{pageStart}, #{perPageNum};
+	]]>
+	</select>
+	
 	<select id="listCount" resultType="int">
 	<![CDATA[
 		SELECT COUNT(lno)
 		FROM lecture
+	]]>
+	</select>
+	
+	<select id="listCountByUno" resultType="int">
+	<![CDATA[
+		SELECT COUNT(lno)
+		FROM lecture
+		where uno = #{uno}
+	]]>
+	</select>
+	
+	<select id="listCountByUnoForStudent" resultType="int">
+	<![CDATA[
+		select count(lecture.lno)
+		from takecourse join user on takecourse.uno = user.uno
+		join lecture on takecourse.lno = lecture.lno
+		where takecourse.uno = #{uno}
 	]]>
 	</select>
 	

@@ -18,7 +18,7 @@
 				
 				  <!-- List group -->
 				  <div class="list-group">
-				  	<a href="/lecture/list" class="list-group-item">수업 목록</a>
+				  	<a href="/lecture/list?loginRole=${login.role}&uno=${login.uno}" class="list-group-item">수업 목록</a>
 				  	<a href="/lecture/read?lno=${noticeVO.lno }" class="list-group-item">수업 상세</a>
 				  	<a href="" class="list-group-item active">알림장</a>
 				  	<c:if test="${login.role == '관리자' || login.role == '강사' }">

@@ -125,7 +125,7 @@
 
 					<!-- depth 1 - 학생 -->
 					<li>
-						<a class="dropdown-toggle" href="/board/list">
+						<a class="dropdown-toggle" href="/student">
 							학생<span class="caret"></span>
 						</a>
 
@@ -138,7 +138,7 @@
 
 					<!-- depth 1 - 학부모 -->
 					<li>
-						<a class="dropdown-toggle" href="/lecture/list?loginRole=${login.role }&uno=${login.uno}">
+						<a class="dropdown-toggle" href="/parents">
 							학부모<span class="caret"></span>
 						</a>
 						
@@ -157,7 +157,7 @@
 
 					<!-- depth 1 - 매니저 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/manager">
 							매니저<span class="caret"></span>
 						</a>
 
@@ -184,8 +184,8 @@
 
 					<!-- depth 1 - 운용자 -->
 					<li>
-						<a class="dropdown-toggle" href="/user/manager">
-							계정 관리<span class="caret"></span>
+						<a class="dropdown-toggle" href="/operator">
+							운용자<span class="caret"></span>
 						</a>
 						
 <%-- 						depth 2	
@@ -202,21 +202,21 @@
 					
 					<!-- depth 1 - 알림장 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/notice">
 							알림장<span class="caret"></span>
 						</a>
 					</li>
 					
 					<!-- depth 1 - 수업 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/lecture">
 							수업<span class="caret"></span>
 						</a>
 					</li>
 					
 					<!-- depth 1 - 강의실 스트리밍 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/streaming">
 							강의실 스트리밍<span class="caret"></span>
 						</a>
 					</li>
@@ -259,7 +259,7 @@
 					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
 					aliquip ex ea commodo consequat.</p>
 				<hr>
-
+<%-- 
 				<!-- 공지사항 게시판 -->
 				<h1 id="notice">공지사항</h1>
 				<div>
@@ -290,7 +290,7 @@
 						</tbody>
 					</table>
 				</div>
-
+ --%>
 			</div>
 			<!-- contents end -->
 

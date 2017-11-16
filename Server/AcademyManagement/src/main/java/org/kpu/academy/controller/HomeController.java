@@ -38,7 +38,48 @@ public class HomeController {
 		Criteria cri = new Criteria();
 		model.addAttribute("list", boardService.listPage(cri));
 		
-		return "Home/home";
+		return "home/home";
 	}
 	
+	@RequestMapping(value = "/lecture", method = RequestMethod.GET)
+	public String Lecture(Model model) throws Exception {
+		
+		return "lecture/student";
+	}
+	
+	@RequestMapping(value = "/manager", method = RequestMethod.GET)
+	public String Manager(Model model) throws Exception {
+		
+		return "manager/info";
+	}
+	
+	@RequestMapping(value = "/notice", method = RequestMethod.GET)
+	public String Notice(Model model) throws Exception {
+		
+		return "notice/list";
+	}
+	
+	@RequestMapping(value = "/operator", method = RequestMethod.GET)
+	public String Operator(Model model) throws Exception {
+		
+		return "operator/list";
+	}
+	
+	@RequestMapping(value = "/parents", method = RequestMethod.GET)
+	public String Parents(Model model) throws Exception {
+		
+		return "parents/children_score";
+	}
+	
+	@RequestMapping(value = "/streaming", method = RequestMethod.GET)
+	public String Streaming(Model model) throws Exception {
+		
+		return "streaming/streaming";
+	}
+	
+	@RequestMapping(value = "/student", method = RequestMethod.GET)
+	public String Student(Model model) throws Exception {
+		
+		return "student/info";
+	}
 }

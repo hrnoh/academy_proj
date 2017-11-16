@@ -125,7 +125,7 @@
 
 					<!-- depth 1 - 학생 -->
 					<li>
-						<a class="dropdown-toggle" href="/board/list">
+						<a class="dropdown-toggle" href="/student">
 							학생<span class="caret"></span>
 						</a>
 
@@ -138,7 +138,7 @@
 
 					<!-- depth 1 - 학부모 -->
 					<li>
-						<a class="dropdown-toggle" href="/lecture/list?loginRole=${login.role }&uno=${login.uno}">
+						<a class="dropdown-toggle" href="/parents">
 							학부모<span class="caret"></span>
 						</a>
 						
@@ -157,7 +157,7 @@
 
 					<!-- depth 1 - 매니저 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/manager">
 							매니저<span class="caret"></span>
 						</a>
 
@@ -184,8 +184,8 @@
 
 					<!-- depth 1 - 운용자 -->
 					<li>
-						<a class="dropdown-toggle" href="/user/manager">
-							계정 관리<span class="caret"></span>
+						<a class="dropdown-toggle" href="/operator">
+							운용자<span class="caret"></span>
 						</a>
 						
 <%-- 						depth 2	
@@ -202,21 +202,21 @@
 					
 					<!-- depth 1 - 알림장 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/notice">
 							알림장<span class="caret"></span>
 						</a>
 					</li>
 					
 					<!-- depth 1 - 수업 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/lecture">
 							수업<span class="caret"></span>
 						</a>
 					</li>
 					
 					<!-- depth 1 - 강의실 스트리밍 -->
 					<li>
-						<a class="dropdown-toggle" href="">
+						<a class="dropdown-toggle" href="/streaming">
 							강의실 스트리밍<span class="caret"></span>
 						</a>
 					</li>
@@ -234,13 +234,13 @@
 			<div class="col-xs-2">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<b>HOME</b>
+						<b>운용자</b>
 					</div>
 
 					<ul class="list-group">
-
-						<li class="list-group-item"><a href="#introduce">학원소개</a></li>
-						<li class="list-group-item"><a href="/board/list">공지사항</a></li>
+						<li class="list-group-item"><a href="">조회</a></li>
+						<li class="list-group-item"><a href="">등록</a></li>
+						<li class="list-group-item"><a href="">권한 수정</a></li>
 					</ul>
 				</div>
 			</div>
@@ -248,48 +248,7 @@
 
 			<!-- contents -->
 			<div class="col-xs-10 text-left">
-				<h1 id="introduce">학원소개</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-					enim ad minim veniam, quis nostrud exercitation ullamco laboris
-					nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat
-					cupidatat non proident, sunt in culpa qui officia deserunt mollit
-					anim id est laborum consectetur adipiscing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-					minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-					aliquip ex ea commodo consequat.</p>
-				<hr>
-
-				<!-- 공지사항 게시판 -->
-				<h1 id="notice">공지사항</h1>
-				<div>
-					<table class="table table-striped table-bordered table-hover">
-						<thead>
-							<tr>
-								<th width="10%">번호</th>
-								<th width="50%">제목</th>
-								<th width="10%">작성자</th>
-								<th width="20%">작성일</th>
-								<th width="10%">조회</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="boardVO" items="${list}" varStatus="status">
-								<tr>
-									<td>${boardVO.bno}</td>
-									<td id="title"><a href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a>
-										<c:if test="${boardVO.viewCnt >= 20}">
-											<span class="hit">hit!</span>
-										</c:if></td>
-									<td>${boardVO.writer}</td>
-									<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-											value="${boardVO.regDate}" /></td>
-									<td>${boardVO.viewCnt}</td>
-								<tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
+				
 
 			</div>
 			<!-- contents end -->

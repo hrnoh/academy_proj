@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -26,7 +27,9 @@
 </head>
 
 <body>
-
+	<!-- Login Modal -->
+	<jsp:include page="login_modal.jsp" flush="false"></jsp:include>
+	
 	<!-- 로고 / nav -->
 	<div class="container">
 		<div class="row">
@@ -58,63 +61,16 @@
 		</div>
 	</div>
 
-	<!-- Login Modal -->
-	<div id="loginModal" class="modal fade" role="dialog" style="top: 100;">
-		<div class="modal-dialog" style="width: 350px">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Login</h4>
-				</div>
-				<div class="modal-body" style="padding-bottom: 0px;">
-					<form action="/user/login" method="post" class="form-horizontal">
-						<div class="form-group">
-							<label class="control-label col-xs-3" for="id">ID :</label>
-							<div class="col-xs-8">
-								<input class="form-control" name="id" type="text"
-									placeholder="Enter ID">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-xs-3" for="pw">PW :</label>
-							<div class="col-xs-8">
-								<input class="form-control" name="pwd" type="password"
-									placeholder="Enter password">
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-xs-offset-8 col-xs-3">
-								<input class="form-control" type="submit" value="Login"
-									class="btn btn-default">
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
 	<!-- 네비게이션 바 -->
 	<div class="container" style="margin-bottom: 10px;">
 		<div class="row">
-			<div class="col-xs-2"></div>
-			<div class="col-xs-10">
+			<div class="col-xs-offset-2 col-xs-10">
 				<!-- depth 1 -->
 				<ul class="nav nav-tabs" id="nav">
 
 					<!-- depth 1 - Home -->
-					<li class="active">
-						<a class="dropdown-toggle" href="/home">
-							Home <span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/home">Home</a>
 					 
 <!-- 					depth 2
 						<ul class="dropdown-menu">
@@ -124,10 +80,8 @@
 					</li>
 
 					<!-- depth 1 - 학생 -->
-					<li>
-						<a class="dropdown-toggle" href="/student">
-							학생<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/student">학생</a>
 
 <!-- 					depth 2	
 						<ul class="dropdown-menu">
@@ -137,10 +91,8 @@
 					</li>
 
 					<!-- depth 1 - 학부모 -->
-					<li>
-						<a class="dropdown-toggle" href="/parents">
-							학부모<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/parents">학부모</a>
 						
 <!-- 						depth 2
 							<ul class="dropdown-menu"> -->
@@ -156,10 +108,8 @@
 					</li>
 
 					<!-- depth 1 - 매니저 -->
-					<li>
-						<a class="dropdown-toggle" href="/manager">
-							매니저<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/manager">매니저</a>
 
 <%-- 					depth 2	
 						<ul class="dropdown-menu">
@@ -183,10 +133,8 @@
 					</li>
 
 					<!-- depth 1 - 운용자 -->
-					<li>
-						<a class="dropdown-toggle" href="/operator">
-							운용자<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/operator">운용자</a>
 						
 <%-- 						depth 2	
 							<ul class="dropdown-menu">
@@ -201,24 +149,18 @@
 					</li>
 					
 					<!-- depth 1 - 알림장 -->
-					<li>
-						<a class="dropdown-toggle" href="/notice">
-							알림장<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/notice">알림장</a>
 					</li>
 					
 					<!-- depth 1 - 수업 -->
-					<li>
-						<a class="dropdown-toggle" href="/lecture">
-							수업<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/lecture">수업</a>
 					</li>
 					
 					<!-- depth 1 - 강의실 스트리밍 -->
-					<li>
-						<a class="dropdown-toggle" href="/streaming">
-							강의실 스트리밍<span class="caret"></span>
-						</a>
+					<li role="presentation">
+						<a href="/streaming">강의실 스트리밍</a>
 					</li>
 						
 				</ul>	<!-- nav 끝 -->

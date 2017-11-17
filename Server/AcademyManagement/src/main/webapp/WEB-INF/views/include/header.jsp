@@ -1,7 +1,7 @@
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <html lang="ko">
 <head>
 <meta charset="utf-8">
@@ -225,56 +225,3 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- 센터 -->
-	<div class="container text-center">
-		<div class="row content">
-
-			<!-- left menu -->
-			<div class="col-xs-2">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<b>강의실 스트리밍</b>
-					</div>
-
-					<ul class="list-group">
-						<li class="list-group-item"><a href="">강의실 1</a></li>
-						<li class="list-group-item"><a href="">강의실 2</a></li>
-						<li class="list-group-item"><a href="">강의실 3</a></li>
-						<li class="list-group-item"><a href="">강의실 4</a></li>
-					</ul>
-				</div>
-			</div>
-
-
-			<!-- contents -->
-			<div class="col-xs-10 text-left">
-				
-
-			</div>
-			<!-- contents end -->
-
-		</div>
-	</div>
-
-
-
-	<footer class="container text-center">
-		<hr>
-		<p>
-			경기도 시흥시 산기대학로 237, TIP 000호 <br> TEL 031.888.3000 FAX
-			031.888.1010 <br> KPU아카데미 대표 : 김학원 사업자등록번호 : 120-90-12547 학원등록번호
-			: 제 001호 <br> ⓒ KPU Academy Inc. 2017 <br>
-		</p>
-	</footer>
-
-	<script type="text/javascript">
-		$("#logout").on("click", function(e) {
-			$("#logoutForm").submit();
-		});
-	</script>
-
-	<!-- nav js -->
-	<script src="/resources/js/nav.js"></script>
-</body>
-</html>

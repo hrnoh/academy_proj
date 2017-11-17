@@ -23,18 +23,4 @@
 	
 	<context:component-scan base-package="org.kpu.academy.controller" />
 	
-	<beans:bean id="loginInterceptor" class="org.kpu.academy.interceptor.LoginInterceptor"></beans:bean>
-	
-	<interceptors>
-		<interceptor>
-			<mapping path="/user/student*"/>
-			<mapping path="/user/teacher*"/>
-			<mapping path="/user/manager*"/>
-			<mapping path="/lecture/*"/>
-			<mapping path="/board/*"/>
-			<mapping path="/consulting/*"/>
-			<beans:ref bean="loginInterceptor"/>
-		</interceptor>
-	</interceptors>
-	
 </beans:beans>
